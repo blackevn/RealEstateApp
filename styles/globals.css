@@ -1,27 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.authInput {
+    @apply input input-md outline-none border-0 focus:bg-backgroundPrimary
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.toastCustom{
+    @apply z-[99999] flex px-4 rounded-full gap-4 items-center 
+           justify-between py-2
+    
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.filterItem{
+    @apply grid place-items-center gap-2 cursor-pointer p-2
+     hover:bg-blue-600 rounded-lg lg:rounded-2xl  
+}
+
+.listGrid{
+    @apply md:grid md:grid-cols-3 xl:grid-cols-4 gap-8 place-items-center
 }
