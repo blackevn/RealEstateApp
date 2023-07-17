@@ -68,7 +68,7 @@ const useAddProperty = () => {
 
 
   const onSendData = () => {
-     axios.post('/api/listings', propertyInfo)
+     axios.post('/api/properties', propertyInfo)
      .then(() => {
        toast.custom(() => (<Toast text="Property added" modifier="bg-green-500 text-white" icon={AiFillCheckCircle}/>))
 
