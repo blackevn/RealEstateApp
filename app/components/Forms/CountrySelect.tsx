@@ -1,52 +1,79 @@
 'use client';
 
-import { useCallback } from "react";
-import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
+import Select from 'react-select'
 
-interface CounterProps {
-  title?: string;
-  subtitle?: string;
-  value?: number ;
-  onChange: (value: number) => void;
+import { useCountries } from '@/app/hooks';
+
+export type CountrySelectValue = {
+  flag: string;
+  label: string;
+  latlng: number[],
+  region: string;
+  value: string
 }
 
-const Counter: React.FC<CounterProps> = ({
-  title,
-  subtitle,
+interface CountrySelectProps {
+  value?: any
+  onChange: any
+}
+
+const CountrySelect: React.FC<CountrySelectProps> = ({
   value,
-  onChange,
+  onChange
 }) => {
-  const onAdd = useCallback(() => {
-    onChange(value ? value + 1 : 1);
-  }, [onChange, value]);
+  const { getAll } = useCountries();
 
-  const onReduce = useCallback(() => {
-    if (value === 1) {
-      return;
-    }
+  const customStyles = {
+    option: (defaultStyles: any, state: any) => ({
+      ...defaultStyles,
+      color: '#fffff'  ,
+      zIndex: 99,
+      width: '50vw',
+      textColor: 'white',
+      backgroundColor: "#161616" ,
+    }),
+    input: () => ({
+      width: '50vw'
+    }),
+    control: (defaultStyles: any) => ({
+      ...defaultStyles,
+      backgroundColor: "#161616",
+      border: "none",
+      borderRadius: '1em',
+      boxShadow: "none",
+      zIndex: 99,
+      width: '50vw'
+    }),
+    singleValue: (defaultStyles: any) => ({ ...defaultStyles, color: "#fffff" }),
+  };
 
-    onChange(value ? value - 1 : 1);
-  }, [onChange, value]);
-
-  return <>
-            <div className="flex items-center w-[60vw] lg:w-[45vw] justify-between">
-              <div className="space-x-1">
-                <h1  className="text-xl font-medium p-0 m-0">{title}</h1>
-                <h1 className="text-[12px] p-0 m-0 hidden md:block">{subtitle}</h1>
-              </div>
-              <div className="flex gap-4 items-center lg:text-xl">
-                <AiFillMinusCircle
-                onClick={onReduce}
-                className="text-2xl"
-                />
-                <h1 className="">{value}</h1>
-                <AiFillPlusCircle
-                onClick={onAdd}
-                className="text-2xl"
-                />
-              </div>
+  return ( 
+    <div>
+      <Select
+        menuPlacement="top"
+        styles={customStyles}
+        placeholder="Type in the location"
+        isClearable
+        options={getAll()}
+        value={value}
+        onChange={(value) => onChange(value)}
+        formatOptionLabel={(option: any) => (
+          <div className="
+          flex flex-row items-center gap-3">
+            <div>{option.flag}</div>
+            <div>
+              {option.label},
+              <span className="text-neutral-500 ml-1">
+                {option.region}
+              </span>
             </div>
-        </>
+          </div>
+        )}
+        className=' z-[999]'
+        
+         />
+    </div>
+   );
 }
  
-export default Counter;
+export default CountrySelect;

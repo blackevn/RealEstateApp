@@ -11,9 +11,11 @@ import { BarChart } from "./Charts/barChart";
 import { Doughnut } from "./Charts/doughnut/doughnut";
 import ReferralsChart from "./Charts/referralsChart";
 import Modal from "./Elements/Modal";
+import AddProperty from "./Forms/AddProperty";
 
 export {
     Navbar, Button, SideNav, Toast, ToastButton, 
     ToasterWrap, AuthForm, PieChart, Doughnut,
-    Avatar, BarChart, ReferralsChart, Modal
+    Avatar, BarChart, ReferralsChart, Modal,
+    AddProperty
 }

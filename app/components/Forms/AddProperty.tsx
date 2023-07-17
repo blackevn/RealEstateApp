@@ -23,9 +23,9 @@ type Props = {
 
 type AddPropertyProps = {
 
-  handleToggleModal: ClickEvent
-  toggleModal: boolean
-  setToggleModal:  Dispatch<SetStateAction<boolean>>
+  handleModalCheck: ClickEvent
+  modalCheck: boolean
+  setModalCheck:  Dispatch<SetStateAction<boolean>>
 }
 
 const Heading: React.FC<Props> = ({ label, title }) => {
@@ -37,7 +37,7 @@ const Heading: React.FC<Props> = ({ label, title }) => {
   
 }
 
-const AddProperty: React.FC<AddPropertyProps> = ({handleToggleModal, toggleModal, setToggleModal}) => {
+const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, setModalCheck}) => {
 
   const { categories } = useLinks()
   const { propertyInfo, setPropertyInfo, handleAddProperty, onBack,
@@ -230,7 +230,7 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleToggleModal, toggleModal
               clickEvent={() => {
                 if(step === STEPS.PRICE ) {
                   onSendData()
-                  setToggleModal(false)
+                  setModalCheck(false)
                   setPropertyInfo(initialListingInfo)
                   setTimeout(() => {
                     setStep(STEPS.CATEGORY)

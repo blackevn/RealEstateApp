@@ -1,9 +1,10 @@
 'use client'
 
-import { Button, Modal } from "@/app/components";
+import { AddProperty, Button, Modal } from "@/app/components";
 import { useToggle } from "@/app/hooks";
 import { FaPlus } from "react-icons/fa";
 import { BsHouseAdd } from "react-icons/bs";
+import { SetStateAction } from "react";
 
 const page = () => {
 
@@ -11,7 +12,7 @@ const page = () => {
   
   return <>
             <div className=" flex justify-between">
-                <h1>All properties</h1>     
+                <h1 className="text-2xl font-bold">All properties</h1>     
                 <div>
                 <Modal
                 label="Add your property"
@@ -23,7 +24,10 @@ const page = () => {
                 checked={modalCheck}
                 modalOff={() => setModalCheck(false)}
                 >
-                    <h1></h1>
+                    <AddProperty 
+                    handleModalCheck={handleModalCheck} 
+                    modalCheck={modalCheck} 
+                    setModalCheck={setModalCheck} />
                 </Modal>
                 </div>       
             </div>
