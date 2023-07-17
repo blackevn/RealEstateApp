@@ -1,35 +1,30 @@
 'use client'
 
-import ReactApexChart from 'react-apexcharts';
+import { Doughnut } from "./doughnut/doughnut"
 
 export interface PieChartProps {
   title: string,
   value: number,
-  series: Array<number>
-  colors: Array<string>
+  data: any
 }
 
-const PieChart: React.FC<PieChartProps> = ({ title, value, series, colors }) => {
+const PieChart: React.FC<PieChartProps> = ({ title, value, data }) => {
   return (
     <div
-     className=''
+     className='md:flex justify-between w-full bg-gray-2 rounded-xl p-8 items-center'
     >
       <div className="column">
-        <h1 className='text-lg'>{title}</h1>
-        <h1 className=''>{value}</h1>
+        <h1 className='text-md font-thin'>{title}</h1>
+        <h1 className='text-2xl font-black'>{value}</h1>
       </div>
 
-      <ReactApexChart 
-        options={{
-          chart: { type: 'donut' },
-          colors,
-          legend: { show: false },
-          dataLabels: { enabled: false },
-        }}
-        series={series}
-        type="donut"
-        width="120px"
-      />
+      <div className="grid place-items-center max-h-[200px] lg:w-1/2">
+      
+      <Doughnut data={data}/>
+
+      </div>
+
+  
     </div>
   )
 }

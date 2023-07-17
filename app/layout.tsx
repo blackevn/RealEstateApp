@@ -12,19 +12,18 @@ export default function RootLayout({ children  } : {
     children: React.ReactNode 
   }) {
   
-    return <html lang="en">
-
-        <body>
-          <SessionProvider>
-
-        <ToasterWrap/> 
-        <div 
-           className="">
+    return <>
+            <html lang="en">
+            <body>
+            <div 
+             className="">
+             <SessionProvider>
+             <ToasterWrap/> 
                 {children}   
-      </div>
-          </SessionProvider>
-           
-      </body>
-      </html>
+            </SessionProvider>
+            </div>       
+            </body>
+            </html>
+          </>
 
   }

@@ -4,21 +4,21 @@ import '../../styles/globals.css'
 import { SideNav } from "../components"
 import { useCurrentUser } from '../hooks'
 
-export default function RootLayout({ children  } : {
+export default function DashboardLayout({ children  } : {
     children: React.ReactNode 
   }) {
 
     const { data: user } = useCurrentUser()
     
-    return <div>
+    return <html>
             
-          <div>
+          <body>
           <SideNav user={user}>
            <div className='grid'>
                {children}   
            </div>
           </SideNav>
-           </div>
-          </div>
+           </body>
+          </html>
   
   } 
