@@ -10,7 +10,7 @@ const page = () => {
     const [ modalCheck, handleModalCheck, setModalCheck ] = useToggle(false)
   
   return <>
-            <div className="">
+            <div className=" flex justify-between">
                 <h1>All properties</h1>     
                 <div>
                 <Modal
