@@ -9,6 +9,7 @@ import { AiFillCheckCircle } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { FaExclamationTriangle } from "react-icons/fa";
+import useCurrentUser from "./useCurrentUser";
 
 
 enum STEPS {
@@ -40,6 +41,7 @@ const useAddProperty = () => {
     const router = useRouter()
     const [ propertyInfo, setPropertyInfo ] = useState<Listing>(initialListingInfo)
     const [ step, setStep ] = useState(STEPS.CATEGORY);
+    const { data: user } = useCurrentUser()
     const { setAddModalToggle } = useGeneralContext()
     const handleAddProperty = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { value, type, name, checked} = e.target
@@ -68,6 +70,9 @@ const useAddProperty = () => {
 
 
   const onSendData = () => {
+
+    if (!user) return  <Toast text="Sign in to add Property" modifier="bg-orange-500 text-white" icon={FaExclamationTriangle}/>
+
      axios.post('/api/properties', propertyInfo)
      .then(() => {
        toast.custom(() => (<Toast text="Property added" modifier="bg-green-500 text-white" icon={AiFillCheckCircle}/>))
