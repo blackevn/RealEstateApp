@@ -15,6 +15,8 @@ import { MdTitle } from "react-icons/md";
 import { LuSubtitles } from "react-icons/lu";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { ClickEvent } from "@/types/interfaces";
+import { IconBaseProps } from "react-icons";
+import { FaTape } from "react-icons/fa";
 
 type Props = {
   label?: string
@@ -129,12 +131,15 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                       value={propertyInfo.bathroomCount}
                       />
                       <hr className="border-gray-2"/>
-                      <Counter
-                      title="Rooms"
-                      subtitle="How many rooms does your property have?"
-                      onChange={(value: any) => setPropertyInfo({...propertyInfo, guestCount: value})}
-                      value={propertyInfo.guestCount}
+                      <Input 
+                      type='number' 
+                      name='squareFt' 
+                      value={propertyInfo.squareFt} 
+                      placeholder={`Enter square feet`} 
+                      icon={FaTape}  
+                      onChange={handleAddProperty}                    
                       />
+                      <h1>/sq-ft</h1>
                     </div>
     )
   }

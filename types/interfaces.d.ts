@@ -143,7 +143,7 @@ export interface ContextData {
     category?:  string
     roomCount?: number
     bathroomCount?: number
-    guestCount?: number
+    squareFt?: number
     locationValue: string
     location?: CountrySelectValue
     userId?: string

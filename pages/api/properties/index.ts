@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             category,
             roomCount,
             bathroomCount,
-            guestCount,
+            squareFt,
             location,
             price, } = req.body
 
@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 category,
                 roomCount,
                 bathroomCount,
-                guestCount,
+                squareFt,
                 locationValue: location.value,
                 price: parseInt(price, 10),
                 userId: currentUser.id

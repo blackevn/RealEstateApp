@@ -37,7 +37,7 @@ model Properties {
   category  String
   roomCount Int
   bathroomCount Int
-  guestCount Int
+  squareFt Int
   locationValue String
   userId String @db.ObjectId
   price Int

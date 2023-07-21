@@ -4,6 +4,9 @@ import { BiCollapse } from "react-icons/bi";
 import { PieChart, ReferralsChart } from "../components";
 import { referrals, pieCharts } from "../components/Charts/data";
 import { BarChart } from "../components/Charts/barChart";
+import { useRouter } from "next/navigation";
+import { useCurrentUser } from "../hooks";
+import { useEffect } from "react";
 
 
 export interface PieChartProps {
@@ -12,8 +15,16 @@ export interface PieChartProps {
   data: any
 }
 
+
 const page = () => {
 
+  const router = useRouter()
+  const { data: user } = useCurrentUser()
+
+  useEffect(() => {
+    if ( user ) return router.push('/dashboard')
+  }, [user])
+  
         
   return <div className="space-y-4 ">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 w-full flex-wrap">
