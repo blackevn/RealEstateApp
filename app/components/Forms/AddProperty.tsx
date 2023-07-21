@@ -133,18 +133,17 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                       <hr className="border-gray-2"/>
                       <div className="flex gap-2 items-center">
 
-                      <Input 
-                      type='number' 
-                      name='squareFt' 
-                      value={propertyInfo.squareFt} 
-                      placeholder={`Enter square feet`} 
-                      icon={FaTape}  
-                      onChange={handleAddProperty}    
+                      <Input
+                      type="number"
+                      onChange={handleAddProperty}
+                      value={propertyInfo.squareFt}
+                      placeholder="Enter square feet of your property"
+                      icon={FaTape}
+                      name="squareFt"
                       modifier="input authInput w-[60vw] lg:w-[45vw]"
-               
                       />
-                      <h1>/sq-ft</h1>
                       </div>
+                      <h1>/sq-ft</h1>
                     </div>
     )
   }
