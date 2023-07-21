@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 bathroomCount,
                 squareFt,
                 locationValue: location.value,
-                price: parseInt(price, 10),
+                price,
                 userId: currentUser.id
               }
         })
