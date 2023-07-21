@@ -27,7 +27,7 @@ const Input: React.FC<InputProps> = (props) => {
 
     <>
 
-    <div className={`form-control relative w-full ${orientation}`}>
+<div className={`form-control relative w-full ${orientation}`}>
         <input
         hidden={hidden}
         ref={ref}

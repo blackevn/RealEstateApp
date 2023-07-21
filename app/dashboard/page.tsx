@@ -22,7 +22,7 @@ const page = () => {
   const { data: user } = useCurrentUser()
 
   useEffect(() => {
-    if ( user ) return router.push('/dashboard')
+    if ( !user ) return router.push('/')
   }, [user])
   
         
