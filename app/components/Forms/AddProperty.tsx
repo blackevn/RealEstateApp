@@ -207,7 +207,7 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                       <div className="flex items-center gap-2">
                       <h1 className="font-bold text-2xl">$</h1>
                       <Input
-                      type="number"
+                      type="text"
                       onChange={handleAddProperty}
                       value={propertyInfo.price}
                       placeholder="Price"

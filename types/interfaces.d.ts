@@ -147,7 +147,7 @@ export interface ContextData {
     locationValue: string
     location?: CountrySelectValue
     userId?: string
-    price?: number
+    price?: string
   }
 
 

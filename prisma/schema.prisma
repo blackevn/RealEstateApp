@@ -40,7 +40,7 @@ model Properties {
   squareFt String
   locationValue String
   userId String @db.ObjectId
-  price Int
+  price String
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 

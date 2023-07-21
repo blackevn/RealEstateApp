@@ -31,7 +31,7 @@ const useAddProperty = () => {
       roomCount: 1,
       bathroomCount: 1,
       imageSrc: '',
-      price: 1,
+      price: '',
       title: '',
       description: '',
       id: "",
