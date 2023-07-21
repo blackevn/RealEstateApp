@@ -139,7 +139,8 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                       value={propertyInfo.squareFt} 
                       placeholder={`Enter square feet`} 
                       icon={FaTape}  
-                      onChange={handleAddProperty}                    
+                      onChange={handleAddProperty}    
+                      modifier="input w-[90%]"                
                       />
                       </div>
                       <h1>/sq-ft</h1>
