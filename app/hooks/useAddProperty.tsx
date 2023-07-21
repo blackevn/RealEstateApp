@@ -79,7 +79,7 @@ const useAddProperty = () => {
 
      })
      .catch(error => toast.custom(() => (
-     <Toast text="Something went wrong" modifier="bg-orange-500 text-white" icon={FaExclamationTriangle}/>
+     <Toast text={error.message} modifier="bg-orange-500 text-white" icon={FaExclamationTriangle}/>
      )))
 
   }
