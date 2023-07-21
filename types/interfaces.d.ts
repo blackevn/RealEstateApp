@@ -143,29 +143,13 @@ export interface ContextData {
     category?:  string
     roomCount?: number
     bathroomCount?: number
-    squareFt?: number
+    squareFt?: string
     locationValue: string
     location?: CountrySelectValue
     userId?: string
     price?: number
   }
-  export  type Listings = {
 
-    id: string
-    title?: string
-    description?: string
-    imageSrc: string
-    createdAt?: string
-    category?:  string
-    roomCount?: number
-    bathroomCount?: number
-    guestCount?: string
-    locationValue: string
-    location?: CountrySelectValue
-    userId?: string
-    price?: number
-  }[]
-  
 
 
 
