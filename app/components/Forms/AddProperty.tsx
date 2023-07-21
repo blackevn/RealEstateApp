@@ -207,7 +207,7 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                       modifier="input authInput w-[60vw] lg:w-[45vw]"
                       iconModifier="hidden"
                       />
-                      <h1>/night</h1>
+                     
                       </div>
                     </div>
     )
