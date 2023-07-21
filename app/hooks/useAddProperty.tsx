@@ -27,7 +27,7 @@ const useAddProperty = () => {
     const initialListingInfo: Listing = {
       category: '',
       location: undefined,
-      squareFt: 1,
+      squareFt: '',
       roomCount: 1,
       bathroomCount: 1,
       imageSrc: '',
