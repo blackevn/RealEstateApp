@@ -118,8 +118,8 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
     bodyContent = (
                     <div className="space-y-4">
                       <Counter
-                      title="Guests"
-                      subtitle="How many guests allowed at a time"
+                      title="Rooms"
+                      subtitle="How many rooms does your property have?"
                       onChange={(value: any) => setPropertyInfo({...propertyInfo, roomCount: value})}
                       value={propertyInfo.roomCount}
                       />
@@ -131,6 +131,8 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                       value={propertyInfo.bathroomCount}
                       />
                       <hr className="border-gray-2"/>
+                      <div className="flex gap-2 items-center">
+
                       <Input 
                       type='number' 
                       name='squareFt' 
@@ -139,6 +141,7 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                       icon={FaTape}  
                       onChange={handleAddProperty}                    
                       />
+                      </div>
                       <h1>/sq-ft</h1>
                     </div>
     )
