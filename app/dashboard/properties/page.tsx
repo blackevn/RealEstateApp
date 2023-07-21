@@ -1,7 +1,7 @@
 'use client'
 
 import { AddProperty, Button, Modal } from "@/app/components";
-import { useToggle } from "@/app/hooks";
+import { useProperties, useToggle } from "@/app/hooks";
 import { FaPlus } from "react-icons/fa";
 import { BsHouseAdd } from "react-icons/bs";
 import { SetStateAction } from "react";
@@ -9,6 +9,10 @@ import { SetStateAction } from "react";
 const page = () => {
 
     const [ modalCheck, handleModalCheck, setModalCheck ] = useToggle(false)
+    const { data: properties}  = useProperties()
+
+    console.log(properties);
+    
   
   return <>
             <div className=" flex justify-between">
