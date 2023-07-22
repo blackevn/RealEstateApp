@@ -1,3 +1,5 @@
+'use client'
+
 import { useProperty } from "@/app/hooks";
 import { usePathname } from "next/navigation";
 
