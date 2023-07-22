@@ -16,7 +16,7 @@ const page = () => {
 
   return <>
         <div>
-          <h1>{property.name}</h1>
+          <h1>{property?.name}</h1>
           <Button
           icon={FaEdit}
           text="Edit"

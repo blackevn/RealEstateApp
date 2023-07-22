@@ -44,7 +44,7 @@ const page = () => {
             </div>
             <div className="listGrid">
                 {allProperties?.map((property: Properties) => (<PropertyCard 
-                                                             key={property.id}
+                                                             key={property?.id}
                                                              property={property} 
                                                              currentUser={user}      
                                                              />))}
