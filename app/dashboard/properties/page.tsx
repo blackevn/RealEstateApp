@@ -37,7 +37,7 @@ const page = () => {
                 </Modal>
                 </div>       
             </div>
-            <div>
+            <div className="listGrid">
                 {properties?.map((property: Properties) => (<PropertyCard 
                                                              property={property} 
                                                              currentUser={user}      
