@@ -11,17 +11,9 @@ const page = () => {
 
     const [ modalCheck, handleModalCheck, setModalCheck ] = useToggle(false)
     const { data: user } = useCurrentUser()
-    const [ allProperties, setAllProperties ] = useState<Properties[]>()
-    
-    useEffect(() => {
-        const { data: properties}  = useProperties()
-        setAllProperties(properties)
-    }, [])
+    const { data: properties}  = useProperties()
 
-    console.log(allProperties);
-    
-  
-  return <>
+    return <>
             <div className=" flex justify-between">
                 <h1 className="text-2xl font-bold">All properties</h1>     
                 <div>
@@ -43,7 +35,7 @@ const page = () => {
                 </div>       
             </div>
             <div className="listGrid">
-                {allProperties?.map((property: Properties) => (<PropertyCard 
+                {properties?.map((property: Properties) => (<PropertyCard 
                                                              key={property?.id}
                                                              property={property} 
                                                              currentUser={user}      
