@@ -23,6 +23,7 @@ model User {
   createAt        DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
   hasNotification Boolean?
+  favoriteIds     String[] @db.ObjectId
 
   properties  Properties[]
   bookings Bookings[]
