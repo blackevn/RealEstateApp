@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { FaExclamationTriangle } from "react-icons/fa";
 import useCurrentUser from "./useCurrentUser";
+import useProperties from "./useProperties";
 
 
 enum STEPS {
@@ -42,6 +43,7 @@ const useAddProperty = () => {
     const [ propertyInfo, setPropertyInfo ] = useState<Listing>(initialListingInfo)
     const [ step, setStep ] = useState(STEPS.CATEGORY);
     const { data: user } = useCurrentUser()
+    const { mutate: propertiesMutate}  = useProperties()
     const { setAddModalToggle } = useGeneralContext()
     const handleAddProperty = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { value, type, name, checked} = e.target
@@ -61,11 +63,11 @@ const useAddProperty = () => {
   }
 
   const onNext = () => {
-    if( step === STEPS.PRICE){
-      setStep(5)
-    } else {
-    setStep((prevValue) => prevValue + 1);
-  }
+      if( step === STEPS.PRICE){
+        setStep(5)
+      } else {
+      setStep((prevValue) => prevValue + 1);
+    }
   }
 
 
@@ -81,6 +83,8 @@ const useAddProperty = () => {
      .catch(error => toast.custom(() => (
      <Toast text={error.message} modifier="bg-orange-500 text-white" icon={FaExclamationTriangle}/>
      )))
+
+     propertiesMutate()
 
   }
 

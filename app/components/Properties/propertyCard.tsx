@@ -74,7 +74,7 @@ console.log(hasFavorited);
 
 
 return <div 
-        onClick={() => router.push(`/listings/${property?.id}`)} 
+        onClick={() => router.push(`/dashboard/properties/${property?.id}`)} 
         className="col-span-1 cursor-pointer hover:bg-gray-2 rounded-2xl transition-all p-2 space-y-4"
         >
           <Image

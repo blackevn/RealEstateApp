@@ -1,15 +1,17 @@
 'use client'
 
-import { AddProperty, Button, Modal } from "@/app/components";
-import { useProperties, useToggle } from "@/app/hooks";
+import { AddProperty, Button, Modal, PropertyCard } from "@/app/components";
+import { useCurrentUser, useProperties, useToggle } from "@/app/hooks";
 import { FaPlus } from "react-icons/fa";
 import { BsHouseAdd } from "react-icons/bs";
 import { SetStateAction } from "react";
+import { Properties } from "@prisma/client";
 
 const page = () => {
 
     const [ modalCheck, handleModalCheck, setModalCheck ] = useToggle(false)
     const { data: properties}  = useProperties()
+    const { data: user } = useCurrentUser()
 
     console.log(properties);
     
@@ -34,6 +36,12 @@ const page = () => {
                     setModalCheck={setModalCheck} />
                 </Modal>
                 </div>       
+            </div>
+            <div>
+                {properties?.map((property: Properties) => (<PropertyCard 
+                                                             property={property} 
+                                                             currentUser={user}      
+                                                             />))}
             </div>
          </>;
 };
