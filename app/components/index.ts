@@ -12,10 +12,11 @@ import { Doughnut } from "./Charts/doughnut/doughnut";
 import ReferralsChart from "./Charts/referralsChart";
 import Modal from "./Elements/Modal";
 import AddProperty from "./Forms/AddProperty";
+import PropertyCard from "./Properties/propertyCard";
 
 export {
     Navbar, Button, SideNav, Toast, ToastButton, 
     ToasterWrap, AuthForm, PieChart, Doughnut,
     Avatar, BarChart, ReferralsChart, Modal,
-    AddProperty
+    AddProperty, PropertyCard
 }

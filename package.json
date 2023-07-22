@@ -20,6 +20,7 @@
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "csstype": "^3.0.10",
+    "date-fns": "^2.30.0",
     "framer-motion": "^10.12.18",
     "leaflet": "^1.9.4",
     "moment": "^2.29.4",

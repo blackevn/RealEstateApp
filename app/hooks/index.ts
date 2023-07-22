@@ -9,9 +9,11 @@ import useCurrentUser from "./useCurrentUser";
 import useLinks from "./useLinks";
 import useCountries from "./useCountries";
 import useProperties from "./useProperties";
+import useFavorite from "./useFavorite";
 export {
     useHeight, useToggle, useUser, 
     useWidth, useUsers, useAuthForm,
     useCurrentUser, useAddProperty,
-    useLinks, useCountries, useProperties
+    useLinks, useCountries, useProperties,
+    useFavorite
 }
