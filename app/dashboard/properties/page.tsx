@@ -11,7 +11,7 @@ const page = () => {
 
     const [ modalCheck, handleModalCheck, setModalCheck ] = useToggle(false)
     const { data: user } = useCurrentUser()
-    const [ allProperties, setAllProperties ] = useState<Properties[]>([])
+    const [ allProperties, setAllProperties ] = useState<Properties[]>()
     
     useEffect(() => {
         const { data: properties}  = useProperties()
