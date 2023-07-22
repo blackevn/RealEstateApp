@@ -11,7 +11,7 @@ const page = () => {
   const propertyId = pathname?.toString().replace(/^\/dashboard\/properties\//, "");
   const { data: property } = useProperty(propertyId as string)
 
-  console.log(propertyId);
+  console.log(property);
   
 
   return <>
