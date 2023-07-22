@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import '../../styles/globals.css'
-import { SideNav } from "../components"
+import { SideNav, ToasterWrap } from "../components"
 import { useCurrentUser } from '../hooks'
 import { useRouter } from "next/navigation";
 
@@ -21,6 +21,7 @@ export default function DashboardLayout({ children  } : {
     return <html>
             
           <body>
+          <ToasterWrap/> 
           <SideNav user={user}>
            <div className='grid'>
                {children}   

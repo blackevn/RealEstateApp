@@ -39,11 +39,12 @@ const page = () => {
             </div>
             <div className="listGrid">
                 {properties?.map((property: Properties) => (<PropertyCard 
+                                                             key={property.id}
                                                              property={property} 
                                                              currentUser={user}      
                                                              />))}
             </div>
-         </>;
+         </>
 };
 
 export default page;
