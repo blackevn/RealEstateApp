@@ -4,16 +4,21 @@ import { AddProperty, Button, Modal, PropertyCard } from "@/app/components";
 import { useCurrentUser, useProperties, useToggle } from "@/app/hooks";
 import { FaPlus } from "react-icons/fa";
 import { BsHouseAdd } from "react-icons/bs";
-import { SetStateAction } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { Properties } from "@prisma/client";
 
 const page = () => {
 
     const [ modalCheck, handleModalCheck, setModalCheck ] = useToggle(false)
-    const { data: properties}  = useProperties()
     const { data: user } = useCurrentUser()
+    const [ allProperties, setAllProperties ] = useState<Properties[]>([])
+    
+    useEffect(() => {
+        const { data: properties}  = useProperties()
+        setAllProperties(properties)
+    }, [])
 
-    console.log(properties);
+    console.log(allProperties);
     
   
   return <>
@@ -38,7 +43,7 @@ const page = () => {
                 </div>       
             </div>
             <div className="listGrid">
-                {properties?.map((property: Properties) => (<PropertyCard 
+                {allProperties?.map((property: Properties) => (<PropertyCard 
                                                              key={property.id}
                                                              property={property} 
                                                              currentUser={user}      
