@@ -10,10 +10,12 @@ import useLinks from "./useLinks";
 import useCountries from "./useCountries";
 import useProperties from "./useProperties";
 import useFavorite from "./useFavorite";
+import useProperty from "./useProperty";
+
 export {
     useHeight, useToggle, useUser, 
     useWidth, useUsers, useAuthForm,
     useCurrentUser, useAddProperty,
     useLinks, useCountries, useProperties,
-    useFavorite
+    useFavorite, useProperty
 }
