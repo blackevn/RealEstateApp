@@ -52,7 +52,7 @@ const useEditForm = ( propertyId?: string ) => {
     
               mutatedCurrentUser()
     
-              toast.custom((t) => (<Toast
+              toast.custom(() => (<Toast
                 text='Profile edited successfully'
                 modifier="bg-green-500 text-white"
                 icon={FaCheckCircle}
@@ -60,7 +60,7 @@ const useEditForm = ( propertyId?: string ) => {
     
             } catch (error: any) {
     
-              toast.custom((t) => (<Toast
+              toast.custom(() => (<Toast
                 text={error.message}
                 modifier="bg-orange-500 text-white"
                 icon={FaExclamationTriangle}

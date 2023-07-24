@@ -12,9 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   
       const { title, description, imageSrc, price, id: propertyId } = req.body;
     
-      console.log(req.body);
-      
-      if (!title || !description) {
+          if (!title || !description) {
         throw new Error('Missing fields');
       }
   

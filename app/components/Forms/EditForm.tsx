@@ -15,7 +15,7 @@ const EditForm: React.FC<EditFormProp> = ({ propertyId }) => {
 
     const { setEditPropertyInfo, editPropertyInfo, handleEdit, handleEditProperty } = useEditForm(propertyId as string)
 
-  return <section className="bg-gray-2 rounded-xl">
+  return <section className="rounded-xl">
   <div className="p-8 shadow-lg">
       <form className="space-y-4">
           <div className="w-full">
