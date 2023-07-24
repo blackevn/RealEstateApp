@@ -5,7 +5,8 @@ import { useProperty, useToggle } from "@/app/hooks";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { FaBook, FaEdit } from "react-icons/fa";
+import { FaBook, FaEdit, FaTape } from "react-icons/fa";
+import { MdBedroomParent } from "react-icons/md";
 import { TbBathFilled } from "react-icons/tb";
 
 const page = () => {
@@ -17,6 +18,8 @@ const page = () => {
   const [ editModal, handleEditModal, setEditModal ] = useToggle(false)
 
   console.log(property);
+
+
   
 
   return <>
@@ -35,18 +38,18 @@ const page = () => {
                     
                 </Modal>
         </div>
-        <div className="lg:flex items-center justify-between">
+        <div className="lg:flex lg:items-center lg:gap-4">
         <Image
           src={property?.imageSrc.toString()}
           alt="Listing image"
           className='rounded-lg w-full lg:w-1/2 object-cover'
           />
-          <div className="space-x-8 flex flex-col justify-between">
+          <div className="flex flex-col justify-between w-full lg:w-1/2 h-full">
             <h1>{property?.description}</h1>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between w-full">
             <div><TbBathFilled/> {property?.bathroomCount}</div>
-            <div><TbBathFilled/> {property?.bathroomCount}</div>
-            <div><TbBathFilled/> {property?.bathroomCount}</div>
+            <div><MdBedroomParent/> {property?.roomCount}</div>
+            <div><FaTape/> {property?.squareFt}</div>
             </div>
             <Button
               text="Book"
