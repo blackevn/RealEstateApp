@@ -13,7 +13,7 @@ const page = () => {
     const { data: user } = useCurrentUser()
     const { data: properties}  = useProperties()
 
-    if ( !properties ) return <div className="grid place-items-center text-3xl w-full h-full"><BsHouseAdd/> <h1>Add properties</h1></div>
+    if ( !properties ) return 
 
     return <>
             <div className=" flex justify-between">
@@ -36,13 +36,13 @@ const page = () => {
                 </Modal>
                 </div>       
             </div>
-            <div className="listGrid">
+           { properties?.length ? <div className="listGrid">
                 {properties?.map((property: Properties) => (<PropertyCard 
                                                              key={property?.id}
                                                              property={property} 
                                                              currentUser={user}      
                                                              />))}
-            </div>
+            </div> : <div className="grid place-items-center text-3xl w-full h-full"><BsHouseAdd/> <h1>Add properties</h1></div>}
          </>
 };
 
