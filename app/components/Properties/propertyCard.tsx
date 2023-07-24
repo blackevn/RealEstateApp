@@ -3,7 +3,7 @@
 import { IUser  } from "@/types/interfaces";
 import { Bookings, Properties} from "@prisma/client";
 import { useRouter } from "next/navigation";
-import { useCountries, useToggle } from "../../hooks";
+import { useCountries, useEditForm, useToggle } from "../../hooks";
 import React, { useCallback, useMemo } from "react";
 import { format } from 'date-fns';
 import Image from "next/image";
@@ -12,6 +12,7 @@ import { FaHeart } from "react-icons/fa";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsCalendarPlusFill } from "react-icons/bs";
 import { useFavorite } from "../../hooks";
+
 
 type ListingProps = {
   property: Properties
@@ -38,6 +39,7 @@ const propertyId = property?.id
 const router = useRouter()
 const { getByValue } = useCountries()
 const location = getByValue(property?.locationValue)
+const { handleDelete } = useEditForm(property?.id as string)
 const { hasFavorited, toggleFavorite, favoriteToggle  } = useFavorite({
     propertyId,
   currentUser
@@ -101,7 +103,9 @@ return <div
           <Button
           text="Delete"
           icon={BsCalendarPlusFill}
-          modifier="w-full btn m-auto"
+          modifier="w-full btn m-auto bg-red-500"
+          clickEvent={handleDelete}
+          
           />
       </div>
 };

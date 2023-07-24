@@ -22,16 +22,17 @@ const page = () => {
 
   return <>
 
-        <Button
-        icon={FaArrowAltCircleLeft}
-        text="Back"
-        clickEvent={() => {
-          router.back()
-        }}
-        />
         <div className="flex items-center justify-between w-full">
-
+          <div className="flex items-center gap-4">
           <h1 className="text-2xl font-bold">{property?.title}</h1>
+          <Button
+          icon={FaArrowAltCircleLeft}
+          text="Back"
+          clickEvent={() => {
+            router.back()
+          }}
+          />
+          </div>
           <Modal
                 label="Edit"
                 modifier="btn px-4 rounded-full text-[0.75rem]"

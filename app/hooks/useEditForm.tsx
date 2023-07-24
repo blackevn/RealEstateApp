@@ -79,7 +79,7 @@ const useEditForm = ( propertyId?: string ) => {
         icon={FaExclamationTriangle}
     />))
     })
-
+    mutatedProperties()
     router.back()
     }   
   
