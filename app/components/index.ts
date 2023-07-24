@@ -13,10 +13,11 @@ import ReferralsChart from "./Charts/referralsChart";
 import Modal from "./Elements/Modal";
 import AddProperty from "./Forms/AddProperty";
 import PropertyCard from "./Properties/propertyCard";
+import EditForm from "./Forms/EditForm";
 
 export {
     Navbar, Button, SideNav, Toast, ToastButton, 
     ToasterWrap, AuthForm, PieChart, Doughnut,
     Avatar, BarChart, ReferralsChart, Modal,
-    AddProperty, PropertyCard
+    AddProperty, PropertyCard, EditForm
 }

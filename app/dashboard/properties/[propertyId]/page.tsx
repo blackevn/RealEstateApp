@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Modal } from "@/app/components";
+import { Button, EditForm, Modal } from "@/app/components";
 import { useProperty, useToggle } from "@/app/hooks";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -35,7 +35,7 @@ const page = () => {
                 checked={editModal}
                 modalOff={() => setEditModal(false)}
                 >
-                    
+                    <EditForm/>
                 </Modal>
         </div>
         <div className="lg:flex lg:items-center lg:gap-4">
