@@ -65,6 +65,7 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                           { categories.map(item => (
                             <CategoryItem
+                             setStep={setStep}
                              selected={propertyInfo.category === item.name}
                              icon={item.icon}
                              name={item.name}

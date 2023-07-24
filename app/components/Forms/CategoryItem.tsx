@@ -3,6 +3,16 @@
 import { ClickEvent, Listing } from "@/types/interfaces";
 import { useCallback } from "react";
 import { IconType } from "react-icons";
+import { EnumType } from "typescript";
+
+enum STEPS {
+  CATEGORY = 0,
+  LOCATION = 1,
+  INFO = 2,
+  IMAGES = 3,
+  DESCRIPTION = 4,
+  PRICE = 5,
+}
 
 type CategortItemsProps = {
      
@@ -11,16 +21,17 @@ type CategortItemsProps = {
      setPropertyInfo:  React.Dispatch<React.SetStateAction<Listing>>
      propertyInfo: Listing
      selected?: boolean
+     setStep: React.Dispatch<React.SetStateAction<STEPS>>
      
 }
 
-const CategoryItem: React.FC<CategortItemsProps> = ({selected, icon: Icon,  name, propertyInfo, setPropertyInfo }) => {
+const CategoryItem: React.FC<CategortItemsProps> = ({setStep, selected, icon: Icon,  name, propertyInfo, setPropertyInfo }) => {
 
        
   const categorySelect = useCallback(() => {
 
        setPropertyInfo((prevInfo => ({...prevInfo, category: name})))
-
+       setStep((prevValue) => prevValue + 1);
   }, [propertyInfo, setPropertyInfo, name])
 
   return <div

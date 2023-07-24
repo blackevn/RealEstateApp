@@ -13,8 +13,6 @@ const page = () => {
     const { data: user } = useCurrentUser()
     const { data: properties}  = useProperties()
 
-    if ( !properties ) return 
-
     return <>
             <div className=" flex justify-between">
                 <h1 className="text-2xl font-bold">All properties</h1>     

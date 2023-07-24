@@ -100,13 +100,13 @@ return <div
           <h1 className="font-bold">${property?.price}</h1>
           </div>
           </div>
-          <Button
+          {/* <Button
           text="Delete"
           icon={BsCalendarPlusFill}
           modifier="w-full btn m-auto bg-red-500"
           clickEvent={handleDelete}
           
-          />
+          /> */}
       </div>
 };
 

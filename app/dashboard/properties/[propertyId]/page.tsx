@@ -24,7 +24,6 @@ const page = () => {
 
         <div className="flex items-center justify-between w-full">
           <div className="flex items-center gap-4">
-          <h1 className="text-2xl font-bold">{property?.title}</h1>
           <Button
           icon={FaArrowAltCircleLeft}
           text="Back"
@@ -32,6 +31,7 @@ const page = () => {
             router.back()
           }}
           />
+          <h1 className="text-2xl font-bold">{property?.title}</h1>
           </div>
           <Modal
                 label="Edit"
