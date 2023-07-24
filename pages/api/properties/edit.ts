@@ -9,21 +9,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
   
     try {
-      const { currentUser } = await serverAuth(req, res);
   
-      const { title, description, imageSrc, price } = req.body;
-      const { propertyId } = req.query
-
+      const { title, description, imageSrc, price, id: propertyId } = req.body;
+    
       console.log(req.body);
       
-  
       if (!title || !description) {
         throw new Error('Missing fields');
       }
   
       const updatedUser = await prisma.properties.update({
         where: {
-          id: currentUser.id,
+          id: propertyId,
         },
           data: {
           price,

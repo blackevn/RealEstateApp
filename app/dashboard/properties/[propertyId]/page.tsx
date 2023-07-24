@@ -35,7 +35,7 @@ const page = () => {
                 checked={editModal}
                 modalOff={() => setEditModal(false)}
                 >
-                    <EditForm/>
+                    <EditForm propertyId={propertyId}/>
                 </Modal>
         </div>
         <div className="lg:flex lg:items-center lg:gap-4">

@@ -7,7 +7,7 @@ import useCurrentUser from "./useCurrentUser";
 import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
 
 
-const useEditForm = () => {
+const useEditForm = ( propertyId: string ) => {
 
     const initialListingInfo: Listing = {
         category: '',
@@ -19,7 +19,7 @@ const useEditForm = () => {
         price: '',
         title: '',
         description: '',
-        id: "",
+        id: propertyId,
         locationValue: ""
       }
 
@@ -36,7 +36,7 @@ const useEditForm = () => {
         }))
     }
 
-    const handleEdit = async (properties: string) => {
+    const handleEdit = async () => {
 
         try {
           
@@ -68,7 +68,7 @@ const useEditForm = () => {
        }
 
     const handleDelete = () => {
-
+      
     }   
   
 
