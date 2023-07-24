@@ -8,6 +8,7 @@ import { toast } from "react-hot-toast";
 import { Toast } from "../components";
 import useCurrentUser from "./useCurrentUser";
 import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
+import useProperties from "./useProperties";
 
 
 const useEditForm = ( propertyId?: string ) => {
@@ -29,7 +30,7 @@ const useEditForm = ( propertyId?: string ) => {
 
 
       const [ editPropertyInfo, setEditPropertyInfo ] = useState<Listing>(initialListingInfo)
-      const { data: mutatedCurrentUser} = useCurrentUser()
+      const { mutate: mutatedProperties} = useProperties()
     const handleEditProperty = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value, type, name, checked} = e.target
         const newValue = type === "checkbox" ? checked : value;
@@ -44,19 +45,12 @@ const useEditForm = ( propertyId?: string ) => {
         try {
           
         await axios.patch(`/api/properties/edit`, editPropertyInfo )
-          .catch( error => toast.custom(<Toast
-            text={error.message}
-            modifier="bg-orange-500 text-white"
-            icon={FaExclamationTriangle}
-            />))
-    
-              mutatedCurrentUser()
-    
-              toast.custom(() => (<Toast
-                text='Profile edited successfully'
-                modifier="bg-green-500 text-white"
-                icon={FaCheckCircle}
-                />))
+        .then(() =>  toast.custom(() => (<Toast
+          text='Property edited successfully'
+          modifier="bg-green-500 text-white"
+          icon={FaCheckCircle}
+          />)))
+            mutatedProperties()
     
             } catch (error: any) {
     
@@ -71,7 +65,19 @@ const useEditForm = ( propertyId?: string ) => {
        }
 
     const handleDelete = () => {
-      
+      axios.delete(`/api/properties/${propertyId}`)
+      .then(() =>  toast.custom(() => (<Toast
+        text='Delete successful'
+        modifier="bg-red-500 text-white"
+        icon={FaCheckCircle}
+    />)))
+    .catch((error) => {
+      toast.custom(() => (<Toast
+        text={error.message}
+        modifier="bg-red-500 text-white"
+        icon={FaExclamationTriangle}
+    />))
+    })
     }   
   
 

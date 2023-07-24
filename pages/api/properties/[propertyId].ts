@@ -4,10 +4,11 @@ import serverAuth from "@/libs/serverAuth";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
+  const { propertyId } = req.query;
+
   if (req.method === 'GET') {
    
   try {
-    const { propertyId } = req.query;
 
     if (!propertyId || typeof propertyId !== 'string') {
       throw new Error('Invalid ID');
@@ -47,9 +48,7 @@ if (req.method === 'DELETE') {
     if (!currentUser) {
       throw new Error('Invalid ID');
     }
-  
-    const { propertyId } = req.query;
-  
+    
     if (!propertyId || typeof propertyId !== 'string') {
       throw new Error('Invalid ID');
     }
