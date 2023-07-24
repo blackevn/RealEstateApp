@@ -1,12 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/libs/prismadb";
+import serverAuth from "@/libs/serverAuth";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
-  if (req.method !== 'GET') {
-    return res.status(405).end();
-  }
-
+  if (req.method === 'GET') {
+   
   try {
     const { propertyId } = req.query;
 
@@ -36,4 +35,37 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log(error);
     return res.status(400).end();
   }
+}
+
+if (req.method === 'DELETE') {
+
+  const { currentUser } = await serverAuth(req, res);    
+
+  try {
+    
+
+    if (!currentUser) {
+      throw new Error('Invalid ID');
+    }
+  
+    const { propertyId } = req.query;
+  
+    if (!propertyId || typeof propertyId !== 'string') {
+      throw new Error('Invalid ID');
+    }
+  
+    const properties = await prisma.properties.deleteMany({
+      where: {
+        id: propertyId,
+        userId: currentUser.id
+      }
+    });
+  
+    return res.status(200).json(properties);
+  
+  } catch (error) {
+    console.log(error);
+    return res.status(400).end();
+  }
+}
 }

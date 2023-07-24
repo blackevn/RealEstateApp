@@ -46,10 +46,10 @@ const page = () => {
           />
           <div className="flex flex-col justify-between w-full lg:w-1/2 h-full">
             <h1 className="p-6">{property?.description}</h1>
-            <div className="flex items-center justify-between w-full px-10">
-            <div className="grid place-items-center text-2xl"><TbBathFilled /> {property?.bathroomCount}</div>
-            <div className="grid place-items-center text-2xl"><MdBedroomParent/> {property?.roomCount}</div>
-            <div className="grid place-items-center text-2xl"><FaTape/> {property?.squareFt}</div>
+            <div className="grid grid-cols-2 gap-4 px-10">
+            <div className="grid place-items-center text-2xl"><TbBathFilled /> {property?.bathroomCount} bathrooms</div>
+            <div className="grid place-items-center text-2xl"><MdBedroomParent/> {property?.roomCount} rooms</div>
+            <div className="grid place-items-center text-2xl"><FaTape/> {property?.squareFt} sq-ft</div>
             </div>
             <Button
               text="Book"
