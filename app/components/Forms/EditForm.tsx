@@ -20,24 +20,24 @@ const EditForm: React.FC<EditFormProp> = ({ propertyId }) => {
       <form className="space-y-4">
           <div className="w-full">
               <label className="sr-only" htmlFor="name">Title</label>
-              <input onChange={handleEditProperty} name="title" value={editPropertyInfo.title} className="input input-solid max-w-full" placeholder="Title" type="text" id="name" />
+              <input onChange={handleEditProperty} name="title" value={editPropertyInfo.title} className="input input-solid max-w-full" placeholder="Title" type="text" id="title" />
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                  <label className="sr-only" htmlFor="email">Email</label>
+                  <label className="" htmlFor="email">Sq-Ft</label>
                   <input value={editPropertyInfo.squareFt} name="squareFt" onChange={handleEditProperty} className="input input-solid" placeholder="Square Foot" />
               </div>
 
               <div>
-                  <label className="sr-only" htmlFor="phone">Phone</label>
-                  <input onChange={handleEditProperty} value={editPropertyInfo.price} name="price" className="input input-solid" placeholder="Price" type="text" id="phone" />
+                  <label className="" htmlFor="price">Price</label>
+                  <input onChange={handleEditProperty} value={editPropertyInfo.price} name="price" className="input input-solid" placeholder="Price" type="text" id="price" />
               </div>
           </div>
 
           <div className="w-full">
-              <label className="sr-only" htmlFor="message">Description</label>
-              <input onChange={handleEditProperty} value={editPropertyInfo.description} name="description" className="input input-solid" placeholder="" type="text" id="phone" />
+              <label className="" htmlFor="description">Description</label>
+              <input onChange={handleEditProperty} name="description" value={editPropertyInfo.description} className="input input-solid max-w-full" placeholder="Description" type="text" id="description" />
             </div>
             <div className="w-full grid place-items-center">
             <ImageUpload
