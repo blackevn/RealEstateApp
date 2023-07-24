@@ -23,7 +23,7 @@ const page = () => {
   
 
   return <>
-        <div className="flex items-center justify-center w-full">
+        <div className="flex items-center justify-between w-full">
           <h1 className="text-2xl font-bold">{property?.title}</h1>
           <Modal
                 label="Edit"
@@ -45,11 +45,11 @@ const page = () => {
           className='rounded-lg w-full lg:w-1/2 object-cover'
           />
           <div className="flex flex-col justify-between w-full lg:w-1/2 h-full">
-            <h1>{property?.description}</h1>
-            <div className="flex items-center justify-between w-full">
-            <div><TbBathFilled/> {property?.bathroomCount}</div>
-            <div><MdBedroomParent/> {property?.roomCount}</div>
-            <div><FaTape/> {property?.squareFt}</div>
+            <h1 className="p-6">{property?.description}</h1>
+            <div className="flex items-center justify-between w-full px-10">
+            <div className="grid place-items-center text-2xl"><TbBathFilled /> {property?.bathroomCount}</div>
+            <div className="grid place-items-center text-2xl"><MdBedroomParent/> {property?.roomCount}</div>
+            <div className="grid place-items-center text-2xl"><FaTape/> {property?.squareFt}</div>
             </div>
             <Button
               text="Book"
