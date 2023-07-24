@@ -13,7 +13,7 @@ interface EditFormProp {
 
 const EditForm: React.FC<EditFormProp> = ({ propertyId }) => {
 
-    const { setEditPropertyInfo, editPropertyInfo, handleEdit, handleEditProperty } = useEditForm(propertyId as string)
+    const { setEditPropertyInfo, editPropertyInfo, handleEdit, handleEditProperty, handleDelete } = useEditForm(propertyId as string)
 
   return <section className="rounded-xl">
   <div className="p-8 shadow-lg">
@@ -53,6 +53,7 @@ const EditForm: React.FC<EditFormProp> = ({ propertyId }) => {
           icon={FaTrash}
           modifier="bg-red-500 btn w-full"
           text="Delete"
+          clickEvent={handleDelete}
           />
       </form>
   </div>

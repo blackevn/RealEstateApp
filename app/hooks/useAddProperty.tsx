@@ -43,7 +43,7 @@ const useAddProperty = () => {
     const [ propertyInfo, setPropertyInfo ] = useState<Listing>(initialListingInfo)
     const [ step, setStep ] = useState(STEPS.CATEGORY);
     const { data: user } = useCurrentUser()
-    const { mutate: propertiesMutate}  = useProperties()
+    const { mutate: mutatedProperties} = useProperties()
     const { setAddModalToggle } = useGeneralContext()
     const handleAddProperty = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { value, type, name, checked} = e.target
@@ -84,7 +84,7 @@ const useAddProperty = () => {
      <Toast text={error.message} modifier="bg-orange-500 text-white" icon={FaExclamationTriangle}/>
      )))
 
-     propertiesMutate()
+     mutatedProperties()
 
   }
 

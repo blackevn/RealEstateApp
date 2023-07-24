@@ -3,9 +3,9 @@
 import { Button, EditForm, Modal } from "@/app/components";
 import { useProperty, useToggle } from "@/app/hooks";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { FaBook, FaEdit, FaTape } from "react-icons/fa";
+import { FaArrowAltCircleLeft, FaBook, FaEdit, FaTape } from "react-icons/fa";
 import { MdBedroomParent } from "react-icons/md";
 import { TbBathFilled } from "react-icons/tb";
 
@@ -15,6 +15,7 @@ const page = () => {
   const propertyId = pathname?.toString().replace(/^\/dashboard\/properties\//, "");
   const { data: property } = useProperty(propertyId as string)
   const [ singleProperty, setSingleProperty ] = useState()
+  const router = useRouter()
   const [ editModal, handleEditModal, setEditModal ] = useToggle(false)
 
   console.log(property);
@@ -24,6 +25,13 @@ const page = () => {
 
   return <>
         <div className="flex items-center justify-between w-full">
+
+        <Button
+        icon={FaArrowAltCircleLeft}
+        text="Back"
+        clickEvent={router.back()}
+        />
+
           <h1 className="text-2xl font-bold">{property?.title}</h1>
           <Modal
                 label="Edit"

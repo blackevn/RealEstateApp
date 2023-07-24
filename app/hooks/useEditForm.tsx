@@ -9,6 +9,7 @@ import { Toast } from "../components";
 import useCurrentUser from "./useCurrentUser";
 import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
 import useProperties from "./useProperties";
+import { useRouter } from "next/navigation";
 
 
 const useEditForm = ( propertyId?: string ) => {
@@ -28,10 +29,10 @@ const useEditForm = ( propertyId?: string ) => {
       }
 
 
-
-      const [ editPropertyInfo, setEditPropertyInfo ] = useState<Listing>(initialListingInfo)
-      const { mutate: mutatedProperties} = useProperties()
-    const handleEditProperty = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const router = useRouter()
+        const [ editPropertyInfo, setEditPropertyInfo ] = useState<Listing>(initialListingInfo)
+        const { mutate: mutatedProperties} = useProperties()
+        const handleEditProperty = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value, type, name, checked} = e.target
         const newValue = type === "checkbox" ? checked : value;
         setEditPropertyInfo((prevData) => ({
@@ -78,6 +79,8 @@ const useEditForm = ( propertyId?: string ) => {
         icon={FaExclamationTriangle}
     />))
     })
+
+    router.back()
     }   
   
 
