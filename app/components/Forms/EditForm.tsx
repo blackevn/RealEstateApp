@@ -19,24 +19,20 @@ const EditForm: React.FC<EditFormProp> = ({ propertyId }) => {
   <div className="p-8 shadow-lg">
       <form className="space-y-4">
           <div className="w-full">
-              <label className="sr-only" htmlFor="name">Title</label>
               <input onChange={handleEditProperty} name="title" value={editPropertyInfo.title} className="input input-solid max-w-full" placeholder="Title" type="text" id="title" />
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                  <label className="" htmlFor="email">Sq-Ft</label>
-                  <input value={editPropertyInfo.squareFt} name="squareFt" onChange={handleEditProperty} className="input input-solid" placeholder="Square Foot" />
+                <input value={editPropertyInfo.squareFt} name="squareFt" onChange={handleEditProperty} className="input input-solid" placeholder="Square Foot" />
               </div>
 
               <div>
-                  <label className="" htmlFor="price">Price</label>
-                  <input onChange={handleEditProperty} value={editPropertyInfo.price} name="price" className="input input-solid" placeholder="Price" type="text" id="price" />
+                <input onChange={handleEditProperty} value={editPropertyInfo.price} name="price" className="input input-solid" placeholder="Price" type="text" id="price" />
               </div>
           </div>
 
           <div className="w-full">
-              <label className="" htmlFor="description">Description</label>
               <input onChange={handleEditProperty} name="description" value={editPropertyInfo.description} className="input input-solid max-w-full" placeholder="Description" type="text" id="description" />
             </div>
             <div className="w-full grid place-items-center">

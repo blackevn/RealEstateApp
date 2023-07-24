@@ -75,7 +75,7 @@ const useEditForm = ( propertyId?: string ) => {
     }   
   
 
-  return { handleEditProperty, editPropertyInfo, setEditPropertyInfo, handleEdit}
+  return { handleEditProperty, editPropertyInfo, setEditPropertyInfo, handleEdit, handleDelete}
 };
 
 export default useEditForm;
