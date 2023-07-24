@@ -9,7 +9,7 @@ import { Toast } from "../components";
 import useCurrentUser from "./useCurrentUser";
 import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
 import useProperties from "./useProperties";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 
 const useEditForm = ( propertyId?: string ) => {
@@ -30,6 +30,7 @@ const useEditForm = ( propertyId?: string ) => {
 
 
         const router = useRouter()
+        const pathname = usePathname()
         const [ editPropertyInfo, setEditPropertyInfo ] = useState<Listing>(initialListingInfo)
         const { mutate: mutatedProperties} = useProperties()
         const handleEditProperty = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,7 +81,9 @@ const useEditForm = ( propertyId?: string ) => {
     />))
     })
     mutatedProperties()
-    router.back()
+    
+    if(pathname !== '/dashboard/properties')
+      router.back()
     }   
   
 
