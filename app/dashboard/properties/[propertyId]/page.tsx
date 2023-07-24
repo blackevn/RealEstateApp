@@ -15,8 +15,8 @@ const page = () => {
   
 
   return <>
-        <div>
-          <h1>{property?.name}</h1>
+        <div className="flex items-center justify-center">
+          <h1>{property?.title}</h1>
           <Button
           icon={FaEdit}
           text="Edit"

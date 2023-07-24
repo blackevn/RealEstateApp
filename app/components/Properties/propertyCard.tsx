@@ -99,7 +99,7 @@ return <div
           </div>
           </div>
           <Button
-          text="Book"
+          text="Delete"
           icon={BsCalendarPlusFill}
           modifier="w-full btn m-auto"
           />
