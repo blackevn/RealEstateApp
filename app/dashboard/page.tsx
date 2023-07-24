@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { useCurrentUser } from "../hooks";
 import { useEffect } from "react";
 
-
 export interface PieChartProps {
   title: string,
   value: number,

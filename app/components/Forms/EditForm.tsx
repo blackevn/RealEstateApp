@@ -1,3 +1,5 @@
+'use client'
+
 import { useEditForm } from "@/app/hooks";
 import { Button } from "../Elements";
 import { FaEdit, FaTrash } from "react-icons/fa";

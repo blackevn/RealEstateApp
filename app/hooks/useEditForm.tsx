@@ -1,3 +1,6 @@
+'use client'
+
+
 import { Listing } from "@/types/interfaces";
 import axios from "axios";
 import React, { useState } from "react";
@@ -7,7 +10,7 @@ import useCurrentUser from "./useCurrentUser";
 import { FaCheckCircle, FaExclamationTriangle } from "react-icons/fa";
 
 
-const useEditForm = ( propertyId: string ) => {
+const useEditForm = ( propertyId?: string ) => {
 
     const initialListingInfo: Listing = {
         category: '',

@@ -1,10 +1,9 @@
 'use client'
-import { useProperties } from '@/app/hooks';
+
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const { data: properties } = useProperties()
 
 export interface PieChartProps {
   title: string,
@@ -144,7 +143,7 @@ const referrals: Referrals[] = [
 const pieCharts: PieChartProps[] = [
   {
   title: "Properties for Sale",
-  value: properties?.length.toString(),
+  value: 55,
   data: data
   },
   {

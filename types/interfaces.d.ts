@@ -135,7 +135,7 @@ export interface ContextData {
 
   export  type Listing = {
 
-    id: string
+    id?: string
     title?: string
     description?: string
     imageSrc: string
