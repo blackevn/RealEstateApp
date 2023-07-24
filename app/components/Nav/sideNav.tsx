@@ -36,7 +36,7 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 					<section className="menu-section px-4">
 						<span className="menu-title">Main menu</span>
 						<ul className="menu-items">
-						<Link href={`/dashboard/properties`} className="menu-item">
+						<Link href={`/dashboard`} className="menu-item">
 								<BiSolidDashboard/>
 								<span>Dashboard</span>
 							</Link>

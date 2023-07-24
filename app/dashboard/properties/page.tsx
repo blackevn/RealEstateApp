@@ -13,7 +13,7 @@ const page = () => {
     const { data: user } = useCurrentUser()
     const { data: properties}  = useProperties()
 
-    if ( !properties ) return
+    if ( !properties ) return <div className="grid place-items-center text-3xl w-full h-full"><BsHouseAdd/> <h1>Add properties</h1></div>
 
     return <>
             <div className=" flex justify-between">
