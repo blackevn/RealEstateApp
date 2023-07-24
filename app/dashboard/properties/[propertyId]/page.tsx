@@ -42,11 +42,11 @@ const page = () => {
           className='rounded-lg w-full lg:w-1/2 object-cover'
           />
           <div className="space-x-8 flex flex-col justify-between">
-            <h1>{property.description}</h1>
+            <h1>{property?.description}</h1>
             <div className="flex items-center justify-between">
-            <div><TbBathFilled/> {property.bathroomCount}</div>
-            <div><TbBathFilled/> {property.bathroomCount}</div>
-            <div><TbBathFilled/> {property.bathroomCount}</div>
+            <div><TbBathFilled/> {property?.bathroomCount}</div>
+            <div><TbBathFilled/> {property?.bathroomCount}</div>
+            <div><TbBathFilled/> {property?.bathroomCount}</div>
             </div>
             <Button
               text="Book"
