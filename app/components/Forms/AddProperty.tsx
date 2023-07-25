@@ -236,7 +236,7 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
             <div className={`flex w-full items-center  ${step === 0 ? 'justify-end' : 'justify-between'}`}>
              {step !== 0 && <Button clickEvent={onBack} text="Back" modifier="btn" icon={IoChevronBackCircleSharp}/>}
               <Button 
-              disabled={step === 5 && !propertyInfo.title ? true : false}
+              disabled={step === 5 && !propertyInfo.title || !propertyInfo.squareFt || !propertyInfo.imageSrc ? true : false}
               clickEvent={() => {
                 if(step === STEPS.PRICE ) {
                   onSendData()
