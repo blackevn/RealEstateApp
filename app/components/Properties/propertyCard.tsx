@@ -88,7 +88,7 @@ return <div
           <Image
           src={property?.imageSrc.toString()}
           alt="Listing image"
-          className='rounded-lg max-h-[200px] w-full lg:max-h-[200px] lg:max-w-[300px] object-cover'
+          className='rounded-lg max-h-[200px] w-full lg:max-h-[200px] lg:max-w-[300px] lg:min-w-[300px]  object-cover'
           />
           <div className="space-y-4">
           <div className="flex justify-between">

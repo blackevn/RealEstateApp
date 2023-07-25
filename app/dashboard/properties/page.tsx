@@ -35,16 +35,14 @@ const page = () => {
                 </Modal>
                 </div>       
             </div>
-            <Suspense fallback={<Loading/>}>
-            <div className="listGrid">
+             <div className="listGrid">
                 {properties?.map((property: Properties) => (<PropertyCard 
                                                              key={property?.id}
                                                              property={property} 
                                                              currentUser={user}      
                                                              />))}
             </div> 
-            </Suspense>
-         </>
+        </>
 };
 
 export default page;
