@@ -26,26 +26,25 @@ const Input: React.FC<InputProps> = (props) => {
   return (
 
     <>
-
-<div className={`form-control relative w-full ${orientation}`}>
+      <div className={`form-control relative w-full ${orientation}`}>
+          
         <input
-        hidden={hidden}
-        ref={ref}
-        onFocus={onFocus}
-        disabled={disabled} 
-        name={name}
-        value={value}
-        onChange={onChange}
-        type={type}
-        className={`${modifier}`} 
-        placeholder={placeholder} />
+          hidden={hidden}
+          ref={ref}
+          onFocus={onFocus}
+          disabled={disabled} 
+          name={name}
+          value={value}
+          onChange={onChange}
+          type={type}
+          className={`${modifier}`} 
+          placeholder={placeholder}
+        />
 
         <span className="absolute inset-y-0 right-4 inline-flex items-center">
-          <Icon onClick={onClick} className={`${iconModifier}`} />
+        <Icon onClick={onClick} className={`${iconModifier}`} />
         </span>
       </div>
-
-      
       
     </>
 
