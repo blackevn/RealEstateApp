@@ -17,6 +17,7 @@ interface SideNav {
 }
 
 const SideNav: React.FC<SideNav> = ({ children, user }) => {
+
 	 
   return <div className="flex flex-row">
 	<div className="sm:w-full sm:max-w-[18rem]">
@@ -157,7 +158,7 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 					</section> */}
 				</nav>
 			</section>
-			<section className="sidebar-footer justify-end bg-gray-2 pt-2">
+			{ user && <section className="sidebar-footer justify-end bg-gray-2 pt-2">
 				<div className="divider my-0"></div>
 				<div className="dropdown z-50 flex h-fit w-full cursor-pointer hover:bg-gray-4">
 					<label className="whites mx-2 flex h-fit w-full cursor-pointer p-0 hover:bg-gray-4" tabIndex={0}>
@@ -188,7 +189,7 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 						/>
 					</div>
 				</div>
-			</section>
+			</section>}
 		</aside>
 	</div>
 	<div className="flex w-full flex-col">
