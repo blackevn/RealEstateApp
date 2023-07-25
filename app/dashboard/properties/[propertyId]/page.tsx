@@ -51,10 +51,10 @@ const page = () => {
           alt="Listing image"
           className='rounded-lg w-full lg:w-1/2 object-cover'
           />
-          <div className="flex flex-col justify-between w-full lg:w-1/3 h-full">
+          <div className="flex flex-col justify-between w-full lg:w-1/2 h-full">
             <div className="space-y-4">
             <h1 className="p-6 max-h-[300px] overflow-y-scroll">{property?.description}</h1>
-            <div className="grid grid-cols-2 gap-4 px-10">
+            <div className="grid grid-cols-2 gap-4 place-items-start">
             <div className="grid place-items-center text-2xl"><TbBathFilled /> {property?.bathroomCount} bathrooms</div>
             <div className="grid place-items-center text-2xl"><MdBedroomParent/> {property?.roomCount} rooms</div>
             <div className="grid place-items-center text-2xl"><FaTape/> {property?.squareFt} sq-ft</div>
