@@ -1,81 +1,80 @@
-"use client";
+'use client';
 
-import { CldUploadWidget } from 'next-cloudinary';
-import { useEffect, useState } from 'react';
+import { CldUploadWidget } from "next-cloudinary";
+import Image from "next/image";
+import { useCallback } from "react"; 
+import { TbPhotoPlus } from 'react-icons/tb'
 
-import { Button } from '../Elements';
-import Image from 'next/image';
-import { ImagePlus, Trash } from 'lucide-react';
-import { Fa500Px, FaTrash } from 'react-icons/fa';
+declare global {
+  var cloudinary: any
+}
+
+const uploadPreset = "hhkswexk";
 
 interface ImageUploadProps {
-  disabled?: boolean;
   onChange: (value: string) => void;
-  onRemove: (value: string) => void;
-  value: string[];
+  value?: string ;
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({
-  disabled,
   onChange,
-  onRemove,
   value
 }) => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const onUpload = (result: any) => {
+  const handleUpload = useCallback((result: any) => {
     onChange(result.info.secure_url);
-  };
+  }, [onChange]);
 
-  if (!isMounted) {
-    return null;
-  }
-
-  return ( 
-    <div>
-      <div className="mb-4 flex items-center gap-4">
-        {value.map((url) => (
-          <div key={url} className="relative w-[200px] h-[200px] rounded-md overflow-hidden">
-            <div className="z-10 absolute top-2 right-2">
-              <Button clickEvent={() => onRemove(url)} modifier='btn' icon={FaTrash}/>
-            </div>
-            <Image
-              fill
-              className="object-cover"
-              alt="Image"
-              src={url}
+  return (
+    <CldUploadWidget 
+      onUpload={handleUpload} 
+      uploadPreset={uploadPreset}
+      options={{
+        maxFiles: 1
+      }}
+    >
+      {({ open }) => {
+        return (
+          <div
+            onClick={() => open?.()}
+            className="
+              relative
+              cursor-pointer
+              hover:opacity-70
+              transition
+              border-dashed 
+              border-2 
+              p-20 
+              border-neutral-300
+              flex
+              flex-col
+              justify-center
+              items-center
+              gap-4
+              text-neutral-600
+            "
+          >
+            <TbPhotoPlus
+              size={50}
             />
-          </div>
-        ))}
-      </div>
-      <CldUploadWidget onUpload={onUpload} uploadPreset="t4drjppf">
-        {({ open }) => {
-          const onClick = () => {
-            open();
-          };
-
-          return (
-            <Button 
-              
-              clickEvent={onClick}
-              icon={Fa500Px}
-              text=''
-            >
-              <div>
-
-              <ImagePlus className="h-4 w-4 mr-2" />
-              Upload an Image
+            <div className="font-semibold text-xs lg:text-lg">
+              Click to upload
+            </div>
+            {value && (
+              <div className="
+              absolute inset-0 w-full h-full">
+                <Image
+                  fill 
+                  style={{ objectFit: 'cover' }} 
+                  src={value} 
+                  alt="House" 
+                />
               </div>
-            </Button>
-          );
-        }}
-      </CldUploadWidget>
-    </div>
+            )}
+          </div>
+        ) 
+    }}
+    </CldUploadWidget>
   );
 }
- 
+
 export default ImageUpload;

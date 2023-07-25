@@ -20,9 +20,9 @@ const page = () => {
   const router = useRouter()
   const { data: user } = useCurrentUser()
 
-  useEffect(() => {
-    if ( !user ) return router.push('/')
-  }, [user])
+  // useEffect(() => {
+  //   if ( !user ) return router.push('/')
+  // }, [user])
   
         
   return <div className="space-y-4 ">

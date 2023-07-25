@@ -138,7 +138,7 @@ export interface ContextData {
     id?: string
     title?: string
     description?: string
-    imageSrc: string[]
+    imageSrc: string
     createdAt?: string
     category?:  string
     roomCount?: number

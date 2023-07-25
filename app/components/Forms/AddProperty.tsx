@@ -161,9 +161,7 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                       <ImageUpload
                       onChange={(value: any) => setPropertyInfo({ ...propertyInfo, imageSrc: value })}
                       value={propertyInfo.imageSrc} 
-                      onRemove={function (value: string): void {
-                        throw new Error("Function not implemented.");
-                      } }                      />
+                      />
                     </div>
     )
   }
