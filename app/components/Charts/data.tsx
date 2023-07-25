@@ -23,7 +23,7 @@ const data = {
  
   datasets: [
     {
-      data: [12],
+      data: [5],
       backgroundColor: [
           'rgba(255, 206, 86, 0.2)',
         
@@ -41,7 +41,7 @@ const data1 = {
  
   datasets: [
     {
-      data: [12],
+      data: [8],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
        
@@ -58,7 +58,7 @@ const data2 = {
  
   datasets: [
     {
-      data: [12],
+      data: [6],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
       
@@ -75,7 +75,7 @@ const data3 = {
  
   datasets: [
     {
-      data: [12],
+      data: [3],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
       
@@ -138,7 +138,7 @@ const pieCharts: PieChartProps[] = [
   },
   {
   title: "Properties for Rent",
-  value: 550,
+  value: 46,
   data: data1
   },
   {
@@ -148,7 +148,7 @@ const pieCharts: PieChartProps[] = [
   },
   {
   title: "Properties for Cities",
-  value: 555,
+  value: 209,
   data: data3
   },
 ]
