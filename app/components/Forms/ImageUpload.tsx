@@ -1,80 +1,81 @@
-'use client';
+"use client";
 
-import { CldUploadWidget } from "next-cloudinary";
-import Image from "next/image";
-import { useCallback } from "react"; 
-import { TbPhotoPlus } from 'react-icons/tb'
+import { CldUploadWidget } from 'next-cloudinary';
+import { useEffect, useState } from 'react';
 
-declare global {
-  var cloudinary: any
-}
-
-const uploadPreset = "b9nu4ylc";
+import { Button } from '../Elements';
+import Image from 'next/image';
+import { ImagePlus, Trash } from 'lucide-react';
+import { Fa500Px, FaTrash } from 'react-icons/fa';
 
 interface ImageUploadProps {
+  disabled?: boolean;
   onChange: (value: string) => void;
-  value?: string ;
+  onRemove: (value: string) => void;
+  value: string[];
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({
+  disabled,
   onChange,
+  onRemove,
   value
 }) => {
-  const handleUpload = useCallback((result: any) => {
-    onChange(result.info.secure_url);
-  }, [onChange]);
+  const [isMounted, setIsMounted] = useState(false);
 
-  return (
-    <CldUploadWidget 
-      onUpload={handleUpload} 
-      uploadPreset={uploadPreset}
-      options={{
-        maxFiles: 1
-      }}
-    >
-      {({ open }) => {
-        return (
-          <div
-            onClick={() => open?.()}
-            className="
-              relative
-              cursor-pointer
-              hover:opacity-70
-              transition
-              border-dashed 
-              border-2 
-              p-20 
-              border-neutral-300
-              flex
-              flex-col
-              justify-center
-              items-center
-              gap-4
-              text-neutral-600
-            "
-          >
-            <TbPhotoPlus
-              size={50}
-            />
-            <div className="font-semibold text-xs lg:text-lg">
-              Click to upload
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const onUpload = (result: any) => {
+    onChange(result.info.secure_url);
+  };
+
+  if (!isMounted) {
+    return null;
+  }
+
+  return ( 
+    <div>
+      <div className="mb-4 flex items-center gap-4">
+        {value.map((url) => (
+          <div key={url} className="relative w-[200px] h-[200px] rounded-md overflow-hidden">
+            <div className="z-10 absolute top-2 right-2">
+              <Button clickEvent={() => onRemove(url)} modifier='btn' icon={FaTrash}/>
             </div>
-            {value && (
-              <div className="
-              absolute inset-0 w-full h-full">
-                <Image
-                  fill 
-                  style={{ objectFit: 'cover' }} 
-                  src={value} 
-                  alt="House" 
-                />
-              </div>
-            )}
+            <Image
+              fill
+              className="object-cover"
+              alt="Image"
+              src={url}
+            />
           </div>
-        ) 
-    }}
-    </CldUploadWidget>
+        ))}
+      </div>
+      <CldUploadWidget onUpload={onUpload} uploadPreset="t4drjppf">
+        {({ open }) => {
+          const onClick = () => {
+            open();
+          };
+
+          return (
+            <Button 
+              
+              clickEvent={onClick}
+              icon={Fa500Px}
+
+            >
+              <div>
+
+              <ImagePlus className="h-4 w-4 mr-2" />
+              Upload an Image
+              </div>
+            </Button>
+          );
+        }}
+      </CldUploadWidget>
+    </div>
   );
 }
-
+ 
 export default ImageUpload;

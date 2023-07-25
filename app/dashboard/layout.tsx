@@ -14,9 +14,9 @@ export default function DashboardLayout({ children  } : {
     
     const router = useRouter()
 
-    useEffect(() => {
-      if ( !user ) return router.push('/')
-    }, [!user])
+    // useEffect(() => {
+    //   if ( !user ) return router.push('/')
+    // }, [!user])
     
     return <html>
             

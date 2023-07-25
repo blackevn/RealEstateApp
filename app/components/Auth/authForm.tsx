@@ -6,6 +6,7 @@ import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc"
 import { RiShieldUserFill } from "react-icons/ri"
 import { FaGithub, FaApple, FaUser, FaAt, FaEye, FaEyeSlash, FaArrowCircleRight } from "react-icons/fa"
+import Link from "next/link";
 
 
 const AuthForm: React.FC = () => {
@@ -15,6 +16,11 @@ const {authData, handleAuthValues, isSignup, setSignup, switchSignup, showPasswo
 
   return <>
     <form className="mx-auto flex w-full max-w-lg flex-col bg p-4 sm:p-20">
+		<div className="">
+			<h1>Login info</h1>
+			<h1>Email: kevinlouie55@gmail.com</h1>
+			<h1>Password: nellwill</h1>
+		</div>
 	<div className="flex w-full flex-col gap-2">
 		<p>Sign { isSignup ? 'up' : 'in'} with</p>
 		<div className="flex w-full flex-col gap-2">
@@ -97,6 +103,14 @@ const {authData, handleAuthValues, isSignup, setSignup, switchSignup, showPasswo
 			icon={FaArrowCircleRight}
 			clickEvent={sendAuthData}
             />
+			<Link href={`/dashboard`}>
+            <Button
+            modifier="btn w-full"
+            text="Go to Dashboard"
+			icon={FaArrowCircleRight}
+			clickEvent={sendAuthData}
+            />
+			</Link>
 			</div>
 		</div>
 

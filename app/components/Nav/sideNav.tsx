@@ -7,7 +7,8 @@ import Avatar from "../Elements/Avatar";
 import { BiSolidDashboard } from "react-icons/bi";
 import Link from "next/link";
 import { BsFillBuildingsFill } from "react-icons/bs";
-import { FaMoneyBill } from "react-icons/fa";
+import { FaMoneyBill, FaSignOutAlt } from "react-icons/fa";
+import { Button } from "../Elements";
 
 interface SideNav {
 	children: React.ReactNode 
@@ -179,7 +180,10 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 						<a tabIndex={-1} className="dropdown-item text-sm">Subscriptions</a>
 						<a tabIndex={-1} className="dropdown-item text-sm">Change password</a>
 						<a tabIndex={-1} className="dropdown-item text-sm">Refer a friend</a>
-						<a tabIndex={-1} className="dropdown-item text-sm">Settings</a>
+						<Button
+						icon={FaSignOutAlt}
+						text="Sign out"
+						/>
 					</div>
 				</div>
 			</section>

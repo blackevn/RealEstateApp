@@ -148,7 +148,7 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                     </div>
     )
   }
-  
+
 
   if (step === STEPS.IMAGES){
     heading = (
@@ -159,9 +159,11 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
     bodyContent = (
                     <div className="space-y-4">
                       <ImageUpload
-                      onChange={(value: any) => setPropertyInfo({...propertyInfo, imageSrc: value})}
-                      value={propertyInfo.imageSrc}
-                      />
+                      onChange={(value: any) => setPropertyInfo({ ...propertyInfo, imageSrc: value })}
+                      value={propertyInfo.imageSrc} 
+                      onRemove={function (value: string): void {
+                        throw new Error("Function not implemented.");
+                      } }                      />
                     </div>
     )
   }
