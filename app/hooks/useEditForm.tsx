@@ -20,7 +20,7 @@ const useEditForm = ( propertyId?: string ) => {
         squareFt: '',
         roomCount: 1,
         bathroomCount: 1,
-        imageSrc: '',
+        imageSrc: [],
         price: '',
         title: '',
         description: '',
