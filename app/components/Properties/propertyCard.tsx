@@ -75,8 +75,14 @@ const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
 console.log(hasFavorited);
 
 
+
+
 return <div 
-        onClick={() => router.push(`/dashboard/properties/${property?.id}`)} 
+        onClick={() => {
+          router.push(`/dashboard/properties/${property?.id}`)
+        }
+        }
+
         className="col-span-1 cursor-pointer hover:bg-gray-2 rounded-2xl transition-all p-2 space-y-4"
         >
           <Image
@@ -104,7 +110,10 @@ return <div
           text="Delete"
           icon={BsCalendarPlusFill}
           modifier="w-full btn m-auto bg-red-500"
-          clickEvent={handleDelete}
+          clickEvent={(e: React.MouseEvent<HTMLButtonElement>) => {
+           e.stopPropagation()
+            handleDelete()
+          }}
           
           />
       </div>
