@@ -15,6 +15,7 @@ const page = () => {
     const { data: properties}  = useProperties()
 
     return <>
+            <div className="space-y-4">
             <div className="flex justify-between">
                 <h1 className="text-2xl font-bold">All properties</h1>     
                 <div>
@@ -42,6 +43,7 @@ const page = () => {
                                                              currentUser={user}      
                                                              />))}
             </div> 
+            </div>
         </>
 };
 
