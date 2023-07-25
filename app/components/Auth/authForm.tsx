@@ -103,17 +103,16 @@ const {authData, handleAuthValues, isSignup, setSignup, switchSignup, showPasswo
 			icon={FaArrowCircleRight}
 			clickEvent={sendAuthData}
             />
+			</div>
+		</div>
+
 			<Link href={`/dashboard`}>
             <Button
             modifier="btn w-full"
             text="Go to Dashboard"
 			icon={FaArrowCircleRight}
-			clickEvent={sendAuthData}
-            />
+			   />
 			</Link>
-			</div>
-		</div>
-
 		<div className="form-field">
 			<div className="form-control">
 					{ !isSignup ? `Don't have an account?` : `Already have an account?`} 

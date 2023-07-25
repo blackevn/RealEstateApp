@@ -63,7 +63,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
               
               clickEvent={onClick}
               icon={Fa500Px}
-
+              text=''
             >
               <div>
 
