@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Input} from "../Elements";
-import { useAuthForm } from "@/app/hooks";
+import { useAuthForm, useCurrentUser } from "@/app/hooks";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc"
 import { RiShieldUserFill } from "react-icons/ri"
@@ -12,7 +12,7 @@ import Link from "next/link";
 const AuthForm: React.FC = () => {
 
 const {authData, handleAuthValues, isSignup, setSignup, switchSignup, showPassword, handleShowPassword, sendAuthData } = useAuthForm()
-
+const { data: user } = useCurrentUser()
 
   return <>
     <form className="mx-auto flex w-full max-w-lg flex-col bg p-4 sm:p-20">
@@ -106,13 +106,13 @@ const {authData, handleAuthValues, isSignup, setSignup, switchSignup, showPasswo
 			</div>
 		</div>
 
-			{/* <Link href={`/dashboard`}>
+			{ user && <Link href={`/dashboard`}>
             <Button
             modifier="btn w-full"
             text="Go to Dashboard"
 			icon={FaArrowCircleRight}
 			   />
-			</Link> */}
+			</Link>}
 		<div className="form-field">
 			<div className="form-control">
 					{ !isSignup ? `Don't have an account?` : `Already have an account?`} 
