@@ -191,7 +191,7 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 			<label htmlFor="sidebar-mobile-fixed" className="btn "><CgMenuLeft/></label>
 		</div>
 
-		<div className=" px-4 lg:pr-8 lg:pt-8">
+		<div className=" px-4 lg:pr-8 lg:pt-4">
 			{children}
 		</div>
 	</div>

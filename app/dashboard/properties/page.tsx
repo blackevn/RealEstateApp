@@ -15,7 +15,7 @@ const page = () => {
     const { data: properties}  = useProperties()
 
     return <>
-            <div className=" flex justify-between">
+            <div className="flex justify-between">
                 <h1 className="text-2xl font-bold">All properties</h1>     
                 <div>
                 <Modal
@@ -35,7 +35,7 @@ const page = () => {
                 </Modal>
                 </div>       
             </div>
-             <div className="listGrid">
+             <div className="listGrid p-4">
                 {properties?.map((property: Properties) => (<PropertyCard 
                                                              key={property?.id}
                                                              property={property} 
