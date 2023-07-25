@@ -9,6 +9,7 @@ import Link from "next/link";
 import { BsFillBuildingsFill } from "react-icons/bs";
 import { FaMoneyBill, FaSignOutAlt } from "react-icons/fa";
 import { Button } from "../Elements";
+import { signOut } from "next-auth/react";
 
 interface SideNav {
 	children: React.ReactNode 
@@ -183,6 +184,7 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 						<Button
 						icon={FaSignOutAlt}
 						text="Sign out"
+						clickEvent={() => signOut()}
 						/>
 					</div>
 				</div>

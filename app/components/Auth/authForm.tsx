@@ -16,7 +16,7 @@ const {authData, handleAuthValues, isSignup, setSignup, switchSignup, showPasswo
 
   return <>
     <form className="mx-auto flex w-full max-w-lg flex-col bg p-4 sm:p-20">
-		<div className="bg-gray-2 rounded-lg p-4">
+		<div className="bg-gray-2 rounded-lg p-4 my-4">
 			<h1 className="text-xl font-bold">Login info</h1>
 			<h1>Email: kevinlouie55@gmail.com</h1>
 			<h1>Password: nellwill</h1>
