@@ -37,9 +37,11 @@ const EditForm: React.FC<EditFormProp> = ({ propertyId }) => {
             </div>
             <div className="w-full grid place-items-center">
             <ImageUpload
-            onChange={(value: any) => setEditPropertyInfo({...editPropertyInfo, imageSrc: value})}
-            value={editPropertyInfo.imageSrc}
-            />
+                      onChange={(value: any) => setEditPropertyInfo({ ...editPropertyInfo, imageSrc: value })}
+                      value={editPropertyInfo.imageSrc} 
+                      onRemove={function (value: string): void {
+                        throw new Error("Function not implemented.");
+                      } }                      />
             </div>
           <div className="mt-4">
               <Button 
