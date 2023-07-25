@@ -45,11 +45,11 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 								<BsFillBuildingsFill/>
 								<span>Properties</span>
 							</Link>
-							<li className="menu-item">
+							{/* <li className="menu-item">
 							<FaMoneyBill/>
 								<span>Billing</span>
-							</li>
-							<li>
+							</li> */}
+							{/* <li>
 								<input type="checkbox" id="menu-1" className="menu-toggle" />
 								<label className="menu-item justify-between" htmlFor="menu-1">
 									<div className="flex gap-2">
@@ -73,7 +73,7 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 										<label className="menu-item ml-6">Change Password</label>
 									</div>
 								</div>
-							</li>
+							</li> */}
 						</ul>
 					</section>
 					<div className="divider my-0"></div>

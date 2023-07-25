@@ -23,7 +23,7 @@ const data = {
  
   datasets: [
     {
-      data: [12, 19, 3,],
+      data: [12],
       backgroundColor: [
           'rgba(255, 206, 86, 0.2)',
         
@@ -41,7 +41,7 @@ const data1 = {
  
   datasets: [
     {
-      data: [12, 19, 3, 5, 2, 3],
+      data: [12],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
        
@@ -58,7 +58,7 @@ const data2 = {
  
   datasets: [
     {
-      data: [12, 19, 3, 5, 2, 3],
+      data: [12],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
       
@@ -75,7 +75,7 @@ const data3 = {
  
   datasets: [
     {
-      data: [12, 19, 3, 5, 2, 3],
+      data: [12],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
       
