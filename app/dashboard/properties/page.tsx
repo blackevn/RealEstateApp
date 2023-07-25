@@ -4,8 +4,9 @@ import { AddProperty, Button, Modal, PropertyCard } from "@/app/components";
 import { useCurrentUser, useProperties, useToggle } from "@/app/hooks";
 import { FaPlus } from "react-icons/fa";
 import { BsHouseAdd } from "react-icons/bs";
-import { SetStateAction, useEffect, useState } from "react";
+import { SetStateAction, Suspense, useEffect, useState } from "react";
 import { Properties } from "@prisma/client";
+import Loading from "./loading";
 
 const page = () => {
 
@@ -34,13 +35,15 @@ const page = () => {
                 </Modal>
                 </div>       
             </div>
-           { properties?.length ? <div className="listGrid">
+            <Suspense fallback={<Loading/>}>
+            <div className="listGrid">
                 {properties?.map((property: Properties) => (<PropertyCard 
                                                              key={property?.id}
                                                              property={property} 
                                                              currentUser={user}      
                                                              />))}
-            </div> : <div className="grid place-items-center text-3xl w-full h-full"><BsHouseAdd/> <h1>Add properties</h1></div>}
+            </div> 
+            </Suspense>
          </>
 };
 
