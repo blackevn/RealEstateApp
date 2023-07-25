@@ -148,6 +148,7 @@ const AddProperty: React.FC<AddPropertyProps> = ({handleModalCheck, modalCheck, 
                     </div>
     )
   }
+  
 
   if (step === STEPS.IMAGES){
     heading = (

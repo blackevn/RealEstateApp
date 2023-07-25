@@ -1,10 +1,12 @@
 'use client'
 
 import { Button, EditForm, Modal } from "@/app/components";
-import { useProperty, useToggle } from "@/app/hooks";
+import { useCurrentUser, useFavorite, useProperty, useToggle } from "@/app/hooks";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { BsFillPhoneVibrateFill } from "react-icons/bs";
 import { FaArrowAltCircleLeft, FaBook, FaEdit, FaTape } from "react-icons/fa";
 import { MdBedroomParent } from "react-icons/md";
 import { TbBathFilled } from "react-icons/tb";
@@ -12,10 +14,15 @@ import { TbBathFilled } from "react-icons/tb";
 const page = () => {
 
   const pathname = usePathname();
-  const propertyId = pathname?.toString().replace(/^\/dashboard\/properties\//, "");
-  const { data: property } = useProperty(propertyId as string)
+  const propertyId = pathname?.toString().replace(/^\/dashboard\/properties\//, "").toString();
+  const { data: property } = useProperty(propertyId)
+  const { data: currentUser } = useCurrentUser()
   const router = useRouter()
   const [ editModal, handleEditModal, setEditModal ] = useToggle(false)
+  const { hasFavorited, toggleFavorite, favoriteToggle  } = useFavorite({
+    propertyId,
+  currentUser
+});
 
   console.log(property);
 
@@ -51,7 +58,7 @@ const page = () => {
           alt="Listing image"
           className='rounded-lg w-full lg:w-1/2 object-cover'
           />
-          <div className="flex flex-col justify-between w-full lg:w-1/2 h-full">
+          <div className="flex flex-col justify-between w-full lg:w-1/2 lg:h-full">
             <div className="space-y-4">
             <h1 className="p-6 max-h-[300px] overflow-y-scroll">{property?.description}</h1>
             <div className="grid grid-cols-2 gap-4 place-items-start">
@@ -60,11 +67,25 @@ const page = () => {
             <div className="grid place-items-center text-2xl"><FaTape/> {property?.squareFt} sq-ft</div>
             </div>
             </div>
+            <div className="flex items-center justify-between">
+
             <Button
-              text="Book"
+              text="Contact Agent"
+              modifier="btn w-full"
+              icon={BsFillPhoneVibrateFill}
+              />
+            <Button
+              icon={hasFavorited || favoriteToggle ? AiFillHeart : AiOutlineHeart}
+              text="Favorite"
+              modifier="text-lg"
+              clickEvent={ toggleFavorite }
+              />
+            <Button
+              text="Schedule tour"
               modifier="btn w-full"
               icon={FaBook}
-            />
+              />
+              </div>
           </div>
         </div>
         </div>

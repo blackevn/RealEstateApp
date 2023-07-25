@@ -12,7 +12,7 @@ import useToggle from "./useToggle";
 import { BsFillHeartbreakFill } from "react-icons/bs";
 
 interface IUseFavorite {
-  propertyId: string;
+  propertyId?: string;
   currentUser?: IUser | null
 }
 
@@ -23,7 +23,7 @@ const useFavorite = ({ propertyId, currentUser }: IUseFavorite) => {
   const hasFavorited = useMemo(() => {
     const list = currentUser?.favoriteIds || [];
 
-    return list.includes(propertyId);
+    return list?.includes(propertyId as string);
   }, [currentUser, propertyId]);
 
   const toggleFavorite = useCallback(async (e: React.MouseEvent<HTMLDivElement>) => {
