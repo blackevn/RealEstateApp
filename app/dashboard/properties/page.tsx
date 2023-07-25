@@ -36,7 +36,7 @@ const page = () => {
                 </Modal>
                 </div>       
             </div>
-             <div className="md:grid md:grid-cols-3 xl:grid-cols-4 md:gap-8 place-items-center">
+             <div className="listGrid space-y-4 space-x-4 p-4">
                 {properties?.map((property: Properties) => (<PropertyCard 
                                                              key={property?.id}
                                                              property={property} 
