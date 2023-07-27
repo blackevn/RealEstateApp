@@ -14,7 +14,7 @@ const UserDetails = () => {
         <div className="flex items-center w-full justify-between">
         <h1 className="text-2xl">{user?.name}</h1>
         <Modal
-        label="Add your property"
+        label="Edit profile"
         modifier="btn px-4 rounded-full text-[0.75rem]"
         modal={editUser ? 'modal-3' : ''}
         toggle={editUser}
@@ -30,7 +30,7 @@ const UserDetails = () => {
                 <div className="grid rounded-xl col-span-5 h-full bg-gray-1 p-4">
                         <h1>Profile</h1>
                         <div className="grid place-items-center gap-4">
-                        <Avatar width="w-24"/>
+                        <Avatar width="w-24 h-24"/>
                         <h1>{user?.email}</h1>
                         </div>
 
