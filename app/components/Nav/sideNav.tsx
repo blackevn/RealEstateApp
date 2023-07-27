@@ -158,11 +158,11 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 					</section> */}
 				</nav>
 			</section>
-			{ user && <Link href={`/dashboard/user/${user.id}`} className="dropdown-item text-sm">
-			<section className="sidebar-footer justify-end bg-gray-2 pt-2">
+			{ user && <section className="sidebar-footer justify-end bg-gray-2 pt-2">
 				<div className="divider my-0"></div>
 				<div className="dropdown z-50 flex h-fit w-full cursor-pointer hover:bg-gray-4">
 					<label className="whites mx-2 flex h-fit w-full cursor-pointer p-0 hover:bg-gray-4" tabIndex={0}>
+					<Link href={`/dashboard/user/${user.id}`} className="dropdown-item text-sm">
 						<div className="flex flex-row gap-4 p-4 items-center justify-between">
 							<div className="avatar-square avatar avatar-md">
 								<Avatar
@@ -175,6 +175,7 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 								<span>{user?.name}</span>
 							</div>
 						</div>
+						</Link>
 					</label>
 					{/* <div className="dropdown-menu-right-top dropdown-menu ml-2">
 						<Link href={`/dashboard/user/${user.id}`} className="dropdown-item text-sm">
@@ -189,7 +190,7 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 						/>
 					</div> */}
 				</div>
-			</section></Link>}
+			</section>}
 		</aside>
 	</div>
 	<div className="flex w-full flex-col">
