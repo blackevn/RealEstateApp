@@ -11,12 +11,12 @@ const UserDetails = () => {
         const [ editUser, handleEditUser, setEditUser ] = useToggle()
 
   return <div> 
-        <div>
+        <div className="flex items-center w-full justify-between">
         <h1 className="text-2xl">{user?.name}</h1>
         <Modal
         label="Add your property"
         modifier="btn px-4 rounded-full text-[0.75rem]"
-        modal={editUser ? 'modal-1' : ''}
+        modal={editUser ? 'modal-3' : ''}
         toggle={editUser}
         onClick={() => handleEditUser(true)}
         checked={editUser}

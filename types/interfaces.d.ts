@@ -129,12 +129,11 @@ export interface ContextData {
     name: string | null; 
     email: string | null; 
     image: string | null; 
-    hashedPassword: string | null; 
-    favoriteIds: string[];
+    hashedPassword?: string | null; 
+    favoriteIds?: string[];
   }
 
   export  type Listing = {
-
     id?: string
     title?: string
     description?: string

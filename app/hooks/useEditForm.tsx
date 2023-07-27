@@ -14,7 +14,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 const useEditForm = ( propertyId?: string ) => {
 
-    const initialListingInfo: Listing = {
+   const initialListingInfo: Listing = {
         category: '',
         location: undefined,
         squareFt: '',
