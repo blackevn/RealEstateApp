@@ -30,7 +30,7 @@ const useFavorite = ({ propertyId, currentUser }: IUseFavorite) => {
     e.stopPropagation();
     handleFavoriteToggle()
 
-    if (!favoriteToggle) return   toast.custom(() => (
+    if (favoriteToggle) return toast.custom(() => (
       <Toast text="Unfavorited" modifier="bg-red-400 text-white" icon={BsFillHeartbreakFill}/>
       ))
 
