@@ -33,7 +33,7 @@ const page = () => {
                                           data={item.data}                                                                   
                                       />))}
             </div>
-            <div className="lg:grid grid-cols-12 gap-4">
+            <div className="lg:grid grid-cols-12 gap-4 space-y-4">
                 <div className=" grid col-span-7 rounded-xl bg-gray-2 p">
                   <div className="flex justify-between items-center p-4">
                     <div>
