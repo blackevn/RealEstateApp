@@ -1,3 +1,5 @@
+'use client'
+
 import { useCurrentUser } from "@/app/hooks";
 import React from "react";
 
