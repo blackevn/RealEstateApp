@@ -158,7 +158,8 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 					</section> */}
 				</nav>
 			</section>
-			{ user && <section className="sidebar-footer justify-end bg-gray-2 pt-2">
+			{ user && <Link href={`/dashboard/user/${user.id}`} className="dropdown-item text-sm">
+			<section className="sidebar-footer justify-end bg-gray-2 pt-2">
 				<div className="divider my-0"></div>
 				<div className="dropdown z-50 flex h-fit w-full cursor-pointer hover:bg-gray-4">
 					<label className="whites mx-2 flex h-fit w-full cursor-pointer p-0 hover:bg-gray-4" tabIndex={0}>
@@ -175,21 +176,20 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 							</div>
 						</div>
 					</label>
-					<div className="dropdown-menu-right-top dropdown-menu ml-2">
-						<a className="dropdown-item text-sm">Profile</a>
-						<a tabIndex={-1} className="dropdown-item text-sm">Account settings</a>
-						<a tabIndex={-1} className="dropdown-item text-sm">Change email</a>
-						<a tabIndex={-1} className="dropdown-item text-sm">Subscriptions</a>
-						<a tabIndex={-1} className="dropdown-item text-sm">Change password</a>
+					{/* <div className="dropdown-menu-right-top dropdown-menu ml-2">
+						<Link href={`/dashboard/user/${user.id}`} className="dropdown-item text-sm">
+							Profile
+						</Link>
+							<a tabIndex={-1} className="dropdown-item text-sm">Change password</a>
 						<a tabIndex={-1} className="dropdown-item text-sm">Refer a friend</a>
 						<Button
 						icon={FaSignOutAlt}
 						text="Sign out"
 						clickEvent={() => signOut()}
 						/>
-					</div>
+					</div> */}
 				</div>
-			</section>}
+			</section></Link>}
 		</aside>
 	</div>
 	<div className="flex w-full flex-col">
