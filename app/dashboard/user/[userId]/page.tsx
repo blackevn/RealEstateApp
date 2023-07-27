@@ -1,18 +1,38 @@
 'use client'
 
-import { useCurrentUser } from "@/app/hooks";
+import { Avatar, Modal } from "@/app/components";
+import { useCurrentUser, useToggle } from "@/app/hooks";
 import React from "react";
+import { FaEdit } from "react-icons/fa";
 
 const UserDetails = () => {
 
         const { data: user } = useCurrentUser()
+        const [ editUser, handleEditUser, setEditUser ] = useToggle()
 
   return <div> 
+        <div>
         <h1 className="text-2xl">{user?.name}</h1>
+        <Modal
+        label="Add your property"
+        modifier="btn px-4 rounded-full text-[0.75rem]"
+        modal={editUser ? 'modal-1' : ''}
+        toggle={editUser}
+        onClick={() => handleEditUser(true)}
+        checked={editUser}
+        modalOff={() => setEditUser(false)}
+        icon={FaEdit} 
+        >
+               <h1>Edit user profile</h1> 
+        </Modal>
+        </div>
           <div className="grid grid-cols-12 gap-4">
                 <div className="grid rounded-xl col-span-5 h-full bg-gray-1 p-4">
                         <h1>Profile</h1>
+                        <div className="grid place-items-center gap-4">
+                        <Avatar width="w-24"/>
                         <h1>{user?.email}</h1>
+                        </div>
 
                 </div>
                 <div className="h-full rounded-xl grid col-span-7 bg-gray-1 p-4">
