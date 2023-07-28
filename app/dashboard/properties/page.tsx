@@ -7,12 +7,27 @@ import { BsHouseAdd } from "react-icons/bs";
 import { SetStateAction, Suspense, useEffect, useState } from "react";
 import { Properties } from "@prisma/client";
 import Loading from "./loading";
+import { Listing } from "@/types/interfaces";
 
 const page = () => {
 
     const [ modalCheck, handleModalCheck, setModalCheck ] = useToggle(false)
     const { data: user } = useCurrentUser()
     const { data: properties}  = useProperties()
+
+    const userProperties: Listing[] = properties?.filter( (property: Listing) =>(property?.userId === user?.id))
+
+    let currentUserProperties
+
+    for(let i = 0; i < userProperties.length; i++){
+
+        currentUserProperties = userProperties[i]
+
+        return currentUserProperties
+    }
+   
+    console.log(currentUserProperties);
+    
 
     return <>
             <div className="space-y-4">

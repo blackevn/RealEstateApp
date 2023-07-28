@@ -1,7 +1,8 @@
 'use client'
 
 import { Avatar, Modal } from "@/app/components";
-import { useCurrentUser, useEditUser, useToggle } from "@/app/hooks";
+import { useCurrentUser, useEditUser, useProperties, useToggle } from "@/app/hooks";
+import { Listing } from "@/types/interfaces";
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 
@@ -9,7 +10,9 @@ const UserDetails = () => {
 
         const { data: user } = useCurrentUser()
         const [ editUser, handleEditUser, setEditUser ] = useToggle()
-        const { setEditData, editData, handleUserEditChange, sendEditData } = useEditUser()
+        const { data: properties } = useProperties()
+
+        const userProperties: Listing[] = properties?.filter( (property: Listing) =>(property?.userId === user?.id))
 
   return <div className="space-y-4"> 
         <div className="flex items-center w-full justify-between">
@@ -42,6 +45,9 @@ const UserDetails = () => {
         </div>
         <div className='w-full rounded-xl '>
          <h1>Properties</h1>
+         <div>
+           { userProperties?.map((item: Listing) => (<h1>{item?.title}</h1>))}
+         </div>
         </div>
         </div>
 };

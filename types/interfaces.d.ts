@@ -47,7 +47,7 @@ export type FormAuthData = {
 export type InputProps = {
   type: string
   name: string 
-  value: string | null | undefined
+  value?: string | number | readonly string[]
   id?: string
   onChange?: FormEventHandler
   onFocus?: FormEventHandler
@@ -126,8 +126,8 @@ export interface ContextData {
     updatedAt?: string; 
     emailVerified?: string | null; 
     id?: string; 
-    name?: string | null; 
-    email?: string | null; 
+    name?: string ; 
+    email?: string; 
     image?: string | null | undefined; 
     hashedPassword?: string | null; 
     favoriteIds?: string[];
