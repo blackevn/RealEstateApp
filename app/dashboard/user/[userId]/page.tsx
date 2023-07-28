@@ -11,7 +11,7 @@ const UserDetails = () => {
         const [ editUser, handleEditUser, setEditUser ] = useToggle()
         const { setEditData, editData, handleUserEditChange, sendEditData } = useEditUser()
 
-  return <div className=""> 
+  return <div className="space-y-4"> 
         <div className="flex items-center w-full justify-between">
         <h1 className="text-2xl">{user?.name}</h1>
         <Modal
