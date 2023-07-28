@@ -1,16 +1,13 @@
 import { IUser, Listing } from "@/types/interfaces";
+import axios from "axios";
 import { useState } from "react";
 
 const useEditUser = () => {
 
     const initialUserInfo: IUser = {
-        createdAt: "",
-        updatedAt: "",
-        emailVerified: null,
-        id: "",
-        name: null,
-        email: null,
-        image: null,
+        name: '',
+        email: '',
+        image: '',
     }
 
     const [ editData, setEditData ] = useState<IUser>(initialUserInfo)
@@ -21,7 +18,11 @@ const useEditUser = () => {
       setEditData(prevData => ({...prevData, [name] : newValue }))
     }
 
-  return { handleUserEditChange, editData, setEditData };
+    const sendEditData = () => {
+      axios.patch('/api/user/edit', editData)
+    }
+
+  return { handleUserEditChange, editData, setEditData, sendEditData };
 };
 
 export default useEditUser;

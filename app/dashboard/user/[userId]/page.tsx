@@ -1,7 +1,7 @@
 'use client'
 
 import { Avatar, Modal } from "@/app/components";
-import { useCurrentUser, useToggle } from "@/app/hooks";
+import { useCurrentUser, useEditUser, useToggle } from "@/app/hooks";
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 
@@ -9,8 +9,9 @@ const UserDetails = () => {
 
         const { data: user } = useCurrentUser()
         const [ editUser, handleEditUser, setEditUser ] = useToggle()
+        const { setEditData, editData, handleUserEditChange, sendEditData } = useEditUser()
 
-  return <div className="space-y-4"> 
+  return <div className=""> 
         <div className="flex items-center w-full justify-between">
         <h1 className="text-2xl">{user?.name}</h1>
         <Modal

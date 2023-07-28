@@ -122,13 +122,13 @@ export interface ContextData {
 
   
   export interface IUser {
-    createdAt: string; 
-    updatedAt: string; 
-    emailVerified: string | null; 
-    id: string; 
-    name: string | null; 
-    email: string | null; 
-    image: string | null; 
+    createdAt?: string; 
+    updatedAt?: string; 
+    emailVerified?: string | null; 
+    id?: string; 
+    name?: string | null; 
+    email?: string | null; 
+    image?: string | null; 
     hashedPassword?: string | null; 
     favoriteIds?: string[];
   }

@@ -11,6 +11,7 @@ import useCountries from "./useCountries";
 import useProperties from "./useProperties";
 import useFavorite from "./useFavorite";
 import useProperty from "./useProperty";
+import useEditUser from "./useEditUser";
 import useEditForm from "./useEditForm";
 
 export {
@@ -18,5 +19,6 @@ export {
     useWidth, useUsers, useAuthForm,
     useCurrentUser, useAddProperty,
     useLinks, useCountries, useProperties,
-    useFavorite, useProperty, useEditForm
+    useFavorite, useProperty, useEditForm,
+    useEditUser
 }
