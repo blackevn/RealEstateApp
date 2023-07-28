@@ -2,7 +2,7 @@
 
 import { BiCollapse } from "react-icons/bi";
 import { PieChart, ReferralsChart } from "../components";
-import { referrals, pieCharts } from "../components/Charts/data";
+import Data from "../components/Charts/data";
 import { BarChart } from "../components/Charts/barChart";
 import { useRouter } from "next/navigation";
 import { useCurrentUser } from "../hooks";
@@ -19,6 +19,7 @@ const page = () => {
 
   const router = useRouter()
   const { data: user } = useCurrentUser()
+  const { referrals, pieCharts  } = Data()
 
   // useEffect(() => {
   //   if ( !user ) return router.push('/')

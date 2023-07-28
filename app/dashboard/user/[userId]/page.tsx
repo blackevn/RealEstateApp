@@ -12,7 +12,7 @@ const UserDetails = () => {
         const { setEditData, editData, handleUserEditChange, sendEditData } = useEditUser()
 
   return <div className=""> 
-        <div className="flex items-center w-full justify-between">
+        <div className="flex items-center w-full justify-between pb-4">
         <h1 className="text-2xl">{user?.name}</h1>
         <Modal
         label="Edit profile"
