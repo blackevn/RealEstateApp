@@ -13,7 +13,7 @@ const uploadPreset = "hhkswexk";
 
 interface ImageUploadProps {
   onChange: (value: string) => void;
-  value?: string ;
+  value?: string | null | undefined  ;
 }
 
 const ImageUpload: React.FC<ImageUploadProps> = ({

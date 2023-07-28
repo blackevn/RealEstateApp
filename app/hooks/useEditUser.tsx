@@ -19,7 +19,7 @@ const useEditUser = () => {
     }
 
     const sendEditData = () => {
-      axios.patch('/api/user/edit', editData)
+      axios.patch('/api/users/edit', editData)
     }
 
   return { handleUserEditChange, editData, setEditData, sendEditData };
