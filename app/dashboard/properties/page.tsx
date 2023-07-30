@@ -4,7 +4,6 @@ import { AddProperty, Button, Modal, PropertyCard } from "@/app/components";
 import { useCurrentUser, useProperties, useToggle } from "@/app/hooks";
 import { FaPlus } from "react-icons/fa";
 import { BsHouseAdd } from "react-icons/bs";
-import { SetStateAction, Suspense, useEffect, useState } from "react";
 import { Properties } from "@prisma/client";
 import Loading from "./loading";
 import { Listing } from "@/types/interfaces";
@@ -13,7 +12,7 @@ const page = () => {
 
     const [ modalCheck, handleModalCheck, setModalCheck ] = useToggle(false)
     const { data: user } = useCurrentUser()
-    const { data: properties}  = useProperties()
+    const { data: properties, isLoading}  = useProperties()
 
     const userProperties: Listing[] = properties?.filter( (property: Listing) =>(property?.userId === user?.id))
 
@@ -27,6 +26,8 @@ const page = () => {
     }
    
     console.log(currentUserProperties);
+
+    if ( isLoading ) return <Loading/>
     
 
     return <>

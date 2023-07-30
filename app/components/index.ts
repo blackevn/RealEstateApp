@@ -14,10 +14,11 @@ import Modal from "./Elements/Modal";
 import AddProperty from "./Forms/AddProperty";
 import PropertyCard from "./Properties/propertyCard";
 import EditForm from "./Forms/EditForm";
+import EditUser from "./Forms/EditUser";
 
 export {
     Navbar, Button, SideNav, Toast, ToastButton, 
     ToasterWrap, AuthForm, PieChart, Doughnut,
     Avatar, BarChart, ReferralsChart, Modal,
-    AddProperty, PropertyCard, EditForm
+    AddProperty, PropertyCard, EditForm, EditUser
 }

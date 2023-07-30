@@ -1,22 +1,26 @@
 'use client'
 
-import { Avatar, Modal } from "@/app/components";
+import { Avatar, EditUser, Modal } from "@/app/components";
 import { useCurrentUser, useEditUser, useProperties, useToggle } from "@/app/hooks";
 import { Listing } from "@/types/interfaces";
 import React from "react";
 import { FaEdit } from "react-icons/fa";
+import Loading from "../../properties/loading";
 
 const UserDetails = () => {
 
-        const { data: user } = useCurrentUser()
+        const { data: user, isLoading } = useCurrentUser()
         const [ editUser, handleEditUser, setEditUser ] = useToggle()
         const { data: properties } = useProperties()
 
         const userProperties: Listing[] = properties?.filter( (property: Listing) =>(property?.userId === user?.id))
 
+        if ( isLoading ) return <Loading/>
+        
   return <div className="space-y-4"> 
         <div className="flex items-center w-full justify-between">
         <h1 className="text-2xl">{user?.name}</h1>
+        
         <Modal
         label="Edit profile"
         modifier="btn px-4 rounded-full text-[0.75rem]"
@@ -27,7 +31,7 @@ const UserDetails = () => {
         modalOff={() => setEditUser(false)}
         icon={FaEdit} 
         >
-               <h1>Edit user profile</h1> 
+               <EditUser/>
         </Modal>
         </div>
         <div className="lg:grid grid-cols-12 gap-4">
