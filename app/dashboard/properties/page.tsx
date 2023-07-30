@@ -7,6 +7,7 @@ import { BsHouseAdd } from "react-icons/bs";
 import { Properties } from "@prisma/client";
 import Loading from "./loading";
 import { Listing } from "@/types/interfaces";
+import { useEffect } from "react";
 
 const page = () => {
 
@@ -16,18 +17,26 @@ const page = () => {
 
     const userProperties: Listing[] = properties?.filter( (property: Listing) =>(property?.userId === user?.id))
 
-    let currentUserProperties
+    
+    let currentUserProperties = []
+
+    const rePop = () => {}
 
     for(let i = 0; i < userProperties?.length; i++){
-
-        currentUserProperties = userProperties[i]
-
-        return currentUserProperties
+        const userProperty = userProperties[i]
+        
+        currentUserProperties.push(userProperty)
     }
-   
-    console.log(currentUserProperties);
+        console.log(currentUserProperties)
+
+        
+    useEffect(() => {
+    
+    
+    }, [currentUserProperties]);
 
     if ( isLoading ) return <Loading/>
+    
     
 
     return <>

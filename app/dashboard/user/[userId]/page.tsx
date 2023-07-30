@@ -13,10 +13,12 @@ const UserDetails = () => {
         const [ editUser, handleEditUser, setEditUser ] = useToggle()
         const { data: properties } = useProperties()
 
-        const userProperties: Listing[] = properties?.filter( (property: Listing) =>(property?.userId === user?.id))
+        const userProperties: Listing[] = properties?.filter( 
+        (property: Listing) =>(property?.userId === user?.id)
+        )
 
         if ( isLoading ) return <Loading/>
-        
+
   return <div className="space-y-4"> 
         <div className="flex items-center w-full justify-between">
         <h1 className="text-2xl">{user?.name}</h1>
