@@ -18,7 +18,7 @@ const page = () => {
 
     let currentUserProperties
 
-    for(let i = 0; i < userProperties.length; i++){
+    for(let i = 0; i < userProperties?.length; i++){
 
         currentUserProperties = userProperties[i]
 
