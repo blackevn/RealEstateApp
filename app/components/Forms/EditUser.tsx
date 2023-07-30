@@ -20,6 +20,7 @@ const EditUser = () => {
               modifier="input w-full" 
               placeholder="Name" 
               type="text" 
+              onChange={handleUserEditChange}
               id="name" />
           </div>
 
@@ -31,8 +32,9 @@ const EditUser = () => {
                   name="email" 
                   value={editData.email}  
                   modifier="input w-full" 
-                  placeholder="Email address" 
+                  placeholder="Email" 
                   type="email" 
+                  onChange={handleUserEditChange}
                   id="email" />
               </div>
 
