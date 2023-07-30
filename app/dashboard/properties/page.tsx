@@ -15,8 +15,11 @@ const page = () => {
     const { data: user } = useCurrentUser()
     const { data: properties, isLoading}  = useProperties()
 
-    const userProperties: Listing[] = properties?.filter( (property: Listing) =>(property?.userId === user?.id))
+    const userProperties: Listing[] = properties?.filter( 
+        (property: Listing) =>(property?.userId === user?.id)
+        ).find((userproperty: Listing ) => (userproperty?.id === user?.id) )
 
+    console.log(userProperties);
     
    
     if ( isLoading ) return <Loading/>
