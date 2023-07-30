@@ -18,23 +18,7 @@ const page = () => {
     const userProperties: Listing[] = properties?.filter( (property: Listing) =>(property?.userId === user?.id))
 
     
-    let currentUserProperties = []
-
-    const rePop = () => {}
-
-    for(let i = 0; i < userProperties?.length; i++){
-        const userProperty = userProperties[i]
-        
-        currentUserProperties.push(userProperty)
-    }
-        console.log(currentUserProperties)
-
-        
-    useEffect(() => {
-    
-    
-    }, [currentUserProperties]);
-
+   
     if ( isLoading ) return <Loading/>
     
     

@@ -55,7 +55,7 @@ const EditUser = () => {
           <div className="mt-4">
               <Button 
               icon={FaArrowAltCircleRight}
-              modifier="btn"
+              modifier="btn w-full"
               text="Edit"
               clickEvent={sendEditData}
               />
