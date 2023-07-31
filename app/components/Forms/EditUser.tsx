@@ -1,4 +1,4 @@
-import { useEditUser } from "@/app/hooks";
+import { useCurrentUser, useEditUser } from "@/app/hooks";
 import React, { Dispatch, FormEventHandler, SetStateAction } from "react";
 import { Button, Input } from "../Elements";
 import { FaArrowAltCircleRight, FaAt, FaUser } from "react-icons/fa";
@@ -15,6 +15,8 @@ interface EditUserProps {
 
 const EditUser: React.FC<EditUserProps>= ({setEditData, setEditUser, editData,sendEditData, handleUserEditChange}) => {
 
+    const { data: user } = useCurrentUser()
+
       return <section className="rounded-xl">
   <div className="p-8 shadow-lg">
       <form className="space-y-4">
@@ -23,7 +25,7 @@ const EditUser: React.FC<EditUserProps>= ({setEditData, setEditUser, editData,se
               <Input 
               icon={FaUser}
               name='name' 
-              value={editData.name} 
+              value={user?.name} 
               modifier="input w-full" 
               placeholder="Name" 
               type="text" 
@@ -37,7 +39,7 @@ const EditUser: React.FC<EditUserProps>= ({setEditData, setEditUser, editData,se
                   <Input 
                   icon={FaAt} 
                   name="email" 
-                  value={editData.email}  
+                  value={user?.email}  
                   modifier="input w-full" 
                   placeholder="Email" 
                   type="email" 
