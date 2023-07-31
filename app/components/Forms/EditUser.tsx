@@ -1,10 +1,14 @@
 import { useEditUser } from "@/app/hooks";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { Button, Input } from "../Elements";
 import { FaArrowAltCircleRight, FaAt, FaUser } from "react-icons/fa";
 import ImageUpload from "./ImageUpload";
 
-const EditUser = () => {
+interface EditUserProps {
+    setEditUser: Dispatch<SetStateAction<boolean>>
+}
+
+const EditUser: React.FC<EditUserProps>= ({setEditUser}) => {
 
     const { editData, handleUserEditChange, sendEditData, setEditData } = useEditUser()
 

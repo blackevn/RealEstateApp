@@ -10,7 +10,7 @@ import Loading from "../../properties/loading";
 const UserDetails = () => {
 
         const { data: user, isLoading } = useCurrentUser()
-        const [ editUser, handleEditUser, setEditUser ] = useToggle()
+        const { editUser, handleEditUser, setEditUser } = useEditUser()
         const { data: properties } = useProperties()
 
         const userProperties: Listing[] = properties?.filter( 
@@ -33,7 +33,7 @@ const UserDetails = () => {
         modalOff={() => setEditUser(false)}
         icon={FaEdit} 
         >
-               <EditUser/>
+               <EditUser setEditUser={setEditUser}/>
         </Modal>
         </div>
         <div className="lg:grid grid-cols-12 gap-4">
