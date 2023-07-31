@@ -1,18 +1,21 @@
 import { useEditUser } from "@/app/hooks";
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, FormEventHandler, SetStateAction } from "react";
 import { Button, Input } from "../Elements";
 import { FaArrowAltCircleRight, FaAt, FaUser } from "react-icons/fa";
 import ImageUpload from "./ImageUpload";
+import { IUser } from "@/types/interfaces";
 
 interface EditUserProps {
     setEditUser: Dispatch<SetStateAction<boolean>>
+    setEditData:  React.Dispatch<React.SetStateAction<IUser>>
+    editData: IUser
+    sendEditData: () => void
+    handleUserEditChange: FormEventHandler
 }
 
-const EditUser: React.FC<EditUserProps>= ({setEditUser}) => {
+const EditUser: React.FC<EditUserProps>= ({setEditData, setEditUser, editData,sendEditData, handleUserEditChange}) => {
 
-    const { editData, handleUserEditChange, sendEditData, setEditData } = useEditUser()
-
-  return <section className="rounded-xl">
+      return <section className="rounded-xl">
   <div className="p-8 shadow-lg">
       <form className="space-y-4">
           <div className="w-full ">
@@ -27,7 +30,7 @@ const EditUser: React.FC<EditUserProps>= ({setEditUser}) => {
               onChange={handleUserEditChange}
               id="name" />
           </div>
-
+ 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                   <label className="sr-only" htmlFor="email">Email</label>
@@ -60,7 +63,7 @@ const EditUser: React.FC<EditUserProps>= ({setEditUser}) => {
               <Button 
               icon={FaArrowAltCircleRight}
               modifier="btn w-full"
-              text="Edit"
+              text="Done"
               clickEvent={sendEditData}
               />
               

@@ -10,9 +10,9 @@ import Loading from "../../properties/loading";
 const UserDetails = () => {
 
         const { data: user, isLoading } = useCurrentUser()
-        const { editUser, handleEditUser, setEditUser } = useEditUser()
         const { data: properties } = useProperties()
-
+        const { editData, handleUserEditChange, sendEditData, setEditData,
+                editUser, handleEditUser, setEditUser } = useEditUser()
         const userProperties: Listing[] = properties?.filter( 
         (property: Listing) =>(property?.userId === user?.id)
         )
@@ -33,7 +33,13 @@ const UserDetails = () => {
         modalOff={() => setEditUser(false)}
         icon={FaEdit} 
         >
-               <EditUser setEditUser={setEditUser}/>
+               <EditUser 
+               handleUserEditChange={handleUserEditChange}
+               editData={editData}
+               sendEditData={sendEditData}
+               setEditData={setEditData}
+               setEditUser={setEditUser}
+               />
         </Modal>
         </div>
         <div className="lg:grid grid-cols-12 gap-4">
