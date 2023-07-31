@@ -166,6 +166,7 @@ const SideNav: React.FC<SideNav> = ({ children, user }) => {
 						<div className="flex flex-row gap-4 p-4 items-center justify-between">
 							<div className="avatar-square avatar avatar-md">
 								<Avatar
+								userId={user?.id}
 								src={`${user?.image !== null || '' ? user?.image
 								: ('/vercel.svg')}`}
 								/>
