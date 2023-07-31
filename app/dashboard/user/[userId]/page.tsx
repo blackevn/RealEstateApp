@@ -46,7 +46,10 @@ const UserDetails = () => {
                 <div className="grid rounded-xl col-span-5 h-full bg-gray-2 p-4">
                         <h1>Profile</h1>
                         <div className="grid place-items-center gap-4">
-                        <Avatar width="w-24 h-24"/>
+                        <Avatar
+                        src={`${user?.image !== null || '' ? user?.image
+                        : ('/vercel.svg')}`}
+                        width="w-24 h-24"/>
                         <h1>{user?.email}</h1>
                         </div>
 
