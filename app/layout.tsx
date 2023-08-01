@@ -2,6 +2,7 @@
 
 import { ToasterWrap, Navbar } from "./components"
 import { SessionProvider } from "next-auth/react";
+import { GeneralAppContext } from "./context/AppContext";
 
 const metadata = {
   title: 'RealEstateApp',
@@ -15,6 +16,7 @@ export default function RootLayout({ children  } : {
     return <>
             <html lang="en">
             <body>
+              <GeneralAppContext>
               <ToasterWrap/> 
             <div 
              className="">
@@ -22,6 +24,7 @@ export default function RootLayout({ children  } : {
                 {children}   
             </SessionProvider>
             </div>       
+            </GeneralAppContext>
             </body>
             </html>
           </>
